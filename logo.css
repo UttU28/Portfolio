@@ -1,0 +1,87 @@
+
+.logoBox{
+    display: flex;
+    position: fixed;
+}
+
+.wireframe{
+    height: 80px;
+    position: absolute;
+    z-index: 299;
+    z-index: 301;
+    transform: scale(1.3,1.1);
+  top: 42px;
+  right: 20px;
+  -webkit-filter: drop-shadow(1px 1px 0 #ff1fff)
+  drop-shadow(-1px -1px 0 #fbff1f);
+  filter: drop-shadow(1px 1px 0 #ff1fff) 
+  drop-shadow(-1px -1px 0 #fbff1f);
+  
+  }  
+  
+  .logoDiv{
+    position: relative;
+  }
+  
+  .logo {
+    height: 80px;
+    position: absolute;
+    z-index: 300;
+    top: 42px;
+    right: 0px;
+    -webkit-filter: drop-shadow(1px 1px 0 #ff1fff)
+                    drop-shadow(-1px -1px 0 #fbff1f);
+    filter: drop-shadow(1px 1px 0 #ff1fff) 
+            drop-shadow(-1px -1px 0 #fbff1f);
+    
+    #Oval {
+      fill: #1fffff;
+    }
+  }
+  
+  #organic-blob circle {
+    position: absolute;
+    fill: #1fffff;
+  }
+  
+  @keyframes from0to360 {
+    from{transform:rotate(0);}
+    to{transform:rotate(360deg);}
+  }
+  
+  #Circle1 {
+    animation: from0to360 2s linear infinite;
+    cx: 150;
+    cy: 145;
+    r: 100;
+    transform-origin: 145px 150px;
+  }
+  
+  @keyframes from360to0 {
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0deg);}
+  }
+  
+  #Circle2 {
+    animation: from360to0 3s linear infinite;
+    cx: 150;
+    cy: 155;
+    r: 100;
+    transform-origin: 155px 150px;
+  }
+  
+  #Circle3 {
+    animation: from0to360 4s linear infinite;
+    cx: 145;
+    cy: 150;
+    r: 100;
+    transform-origin: 150px 145px;
+  }
+  
+  #Circle4 {
+    animation: from360to0 2.5s linear infinite;
+    cx: 155;
+    cy: 150;
+    r: 100;
+    transform-origin: 150px 155px;
+  }
