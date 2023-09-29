@@ -91,13 +91,16 @@ body {
     height: 100vh;
     /* align-items: center; */
     padding: 0;
-    padding-top: 200px;
+    padding-top: 100px;
     padding-left: 200px;
     color: #fff;
 }
 
 .homePage{width: 600px;}
 .aboutPage{width: 600px;}
+.projectsPage{width: 600px;}
+.experiencePage{width: 600px;}
+.youTubePage{width: 600px;}
 
 @keyframes turn {
     0% {
@@ -173,7 +176,7 @@ body {
 }
 
 h3 {
-    /* font-family: mainText; */
+    /* font-family: FmainText; */
     font-family: 'Roboto', sans-serif;
   font-family: "Permanent Marker", sans-serif;
   font-weight: 400;

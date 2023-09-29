@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&family=Roboto:wght@100;900&display=swap');
+@font-face {
+    font-family: "codeFont"; /* this value can be anything you wish - it gets used in the class definition below */
+    src: url("./Fonts/codeFont.ttf"); /* add the file path to your font here */
+  }
+
+
+
+  .youTubeText{
+    scroll-behavior: smooth;
+  }
+
+  .youTubeText .types{
+    border: 1px #1fffff solid;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0, 0.6), 2px 1px 4px rgba(0,0,0, 0.3), 2px 4px 3px rgba(3,0,128, 0.3), 0 0 7px 2px rgba(0,208,255, 0.6), inset 0 1px 2px rgba(0,0,0, 0.6), inset 2px 1px 4px rgba(0,0,0, 0.3), inset 2px 4px 3px rgba(3,0,128, 0.3), inset 0 0 7px 2px rgba(0,208,255, 0.6);
+    
+  }
+  
+  .youTubeText .blockWords{
+  font-family: "Patrick Hand", sans-serif;
+    font-weight: Bold;
+    font-size: 35px;
+  }
+
+
+  .youTubeText .normalText{
+  width: 650px;
+  font-family: "Patrick Hand", sans-serif;
+    /* font-family: "Permanent Marker", sans-serif; */
+    font-weight: 100;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.youTubeText .skillsText{
+    padding: 5px;
+  font-family: "Patrick Hand", sans-serif;
+  /* font-family: "Permanent Marker", sans-serif; */
+  font-weight: 10;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #ff1f1f;
+  flex-wrap: Bold;
+}
+.youTubeText .important{
+  color: rgb(193, 24, 24);
+  font-size: 22px;
+  flex-wrap: Bold;
+}
+ 
+.youTubeText .important:hover{
+  color: #ff1f1f;
+}
+
+
+.youTubeButton{
+  height: 90px;
+  width: max-content;
+  border-radius: 45px;
+  margin-top: 25px;
+  margin-left: 30px;
+  padding-right: 25px;
+
+  display: flex;
+  align-items: center;
+  background-color: red;
+  justify-content: left;
+  transition: transform .7s ease-in-out;
+
+}
+.youTubeButton:hover{
+  transform: rotate(-5deg);
+}
+
+.myYouTubeLogo{
+  height: 70px;
+  border-radius: 50%;
+  background: #fff;
+  margin-left: 10px;
+  border: 2px solid black;
+}
+
+.ytLogo {
+  font-size: 50px;
+  padding-left: 25px;
+  padding-right: 10px;
+}
+
+.youTubeText{
+  font-size: 50px;
+  font-family: "Patrick Hand", sans-serif;
+  
+}

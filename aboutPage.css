@@ -16,11 +16,11 @@
     font-family: "Patrick Hand", sans-serif;
     /* font-family: "Permanent Marker", sans-serif; */
     font-weight: 100;
-    font-size: 25px;
+    font-size: 20px;
     letter-spacing: 1px;
 }
 .important{
-  font-size: 27px;
+  font-size: 23px;
   color: #1fffff;
   flex-wrap: Bold;
 }

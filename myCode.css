@@ -83,6 +83,59 @@
     top: 0px;
 }
 
+.projectsPage .myCode.title.top{
+    top: 10px;
+    right: 30px;
+}
+.projectsPage .myCode.title.bottom{
+    left: 650px;
+    top: -70px;
+}
+.projectsPage .myCode.projects.top{
+    top: -15px;
+    right: 30px;
+}
+.projectsPage .myCode.projects.bottom{
+    left: 650px;
+    top: 0px;
+}
+
+.experiencePage .myCode.title.top{
+    top: 10px;
+    right: 30px;
+}
+.experiencePage .myCode.title.bottom{
+    left: 650px;
+    top: -70px;
+}
+.experiencePage .myCode.experience.top{
+    top: -15px;
+    right: 30px;
+}
+.experiencePage .myCode.experience.bottom{
+    left: 650px;
+    top: 0px;
+}
+
+
+.youTubePage .myCode.title.top{
+    top: 10px;
+    right: 30px;
+}
+.youTubePage .myCode.title.bottom{
+    left: 650px;
+    top: -70px;
+}
+.youTubePage .myCode.youTube.top{
+    top: -15px;
+    right: 30px;
+}
+.youTubePage .myCode.youTube.bottom{
+    left: 650px;
+    top: 0px;
+}
+
+
 .myCode.navCode.mid{
     top: 55px;
     left: 60px;

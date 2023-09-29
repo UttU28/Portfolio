@@ -16,60 +16,12 @@ yellowShaddow = "-2px 4px 4px #424309, 0 0 10px #fffb00,inset 1px 1px 1px white"
 pinkShaddow = "-2px 4px 4px #3e0943, 0 0 10px #ea00ff,inset 1px 1px 1px white";
 dblueShaddow = "-2px 4px 4px #090d43, 0 0 10px #0004ff,inset 1px 1px 1px white";
 
-function Home1() {
-    document.getElementById("Home").style.cursor = "cell";
-    document.getElementById("Home").style.boxShadow = blueBorder;
-  document.getElementById("Home").style.fontSize = hindiFontSize;
-  document.getElementById("Home").style.fontFamily = hindiFontFamily;
-  document.getElementById("Home").style.color = "#4DEEEA";
-  document.getElementById("Home").value = "घर";
-  setTimeout("Home2()", delayTime);
-}
-function Home2() {
-  document.getElementById("Home").style.fontSize = englishFontSize;
-  document.getElementById("Home").style.fontFamily = englishFontFamily;
-//   document.getElementById("Home").style.color = "#1fffff";
-  document.getElementById("Home").value = "00.Home";
-}
-
-function Portfolio1() {
-    document.getElementById("Portfolio").style.cursor = "cell";
-document.getElementById("Portfolio").style.boxShadow = greenBorder;
-document.getElementById("Portfolio").style.fontSize = hindiFontSize;
-  document.getElementById("Portfolio").style.fontFamily = hindiFontFamily;
-  document.getElementById("Portfolio").style.color = "#74EE15";
-  document.getElementById("Portfolio").value = "पोर्टफोलियो";
-  setTimeout("Portfolio2()", delayTime);
-}
-function Portfolio2() {
-document.getElementById("Portfolio").style.fontSize = englishFontSize;
-  document.getElementById("Portfolio").style.fontFamily = englishFontFamily;
-//   document.getElementById("Portfolio").style.color = "#1fffff";
-  document.getElementById("Portfolio").value = "01.Portfolio";
-}
-
-function Session1() {
-document.getElementById("Session").style.cursor = "cell";
-document.getElementById("Session").style.boxShadow = yellowBorder;
-document.getElementById("Session").style.fontSize = hindiFontSize;
-  document.getElementById("Session").style.fontFamily = hindiFontFamily;
-  document.getElementById("Session").style.color = "#FFE700";
-  document.getElementById("Session").value = "कार्यशाला";
-  setTimeout("Session2()", delayTime);
-}
-function Session2() {
-document.getElementById("Session").style.fontSize = englishFontSize;
-  document.getElementById("Session").style.fontFamily = englishFontFamily;
-//   document.getElementById("Session").style.color = "#1fffff";
-  document.getElementById("Session").value = "02.Workshop";
-}
-
 function About1() {
-document.getElementById("About").style.cursor = "cell";
-document.getElementById("About").style.boxShadow = pinkBorder;
-document.getElementById("About").style.fontSize = hindiFontSize;
+    document.getElementById("About").style.cursor = "cell";
+    document.getElementById("About").style.boxShadow = blueBorder;
+  document.getElementById("About").style.fontSize = hindiFontSize;
   document.getElementById("About").style.fontFamily = hindiFontFamily;
-  document.getElementById("About").style.color = "#F000FF";
+  document.getElementById("About").style.color = "#4DEEEA";
   document.getElementById("About").value = "मैं";
   setTimeout("About2()", delayTime);
 }
@@ -77,23 +29,71 @@ function About2() {
   document.getElementById("About").style.fontSize = englishFontSize;
   document.getElementById("About").style.fontFamily = englishFontFamily;
 //   document.getElementById("About").style.color = "#1fffff";
-  document.getElementById("About").value = "03.About";
+  document.getElementById("About").value = "00.About";
 }
 
-function Contact1() {
-document.getElementById("Contact").style.cursor = "cell";
-document.getElementById("Contact").style.boxShadow = dblueBorder;
-document.getElementById("Contact").style.fontSize = hindiFontSize;
-  document.getElementById("Contact").style.fontFamily = hindiFontFamily;
-  document.getElementById("Contact").style.color = "#001EFF";
-  document.getElementById("Contact").value = "कांटेक्ट";
-  setTimeout("Contact2()", delayTime);
+function Projects1() {
+    document.getElementById("Projects").style.cursor = "cell";
+document.getElementById("Projects").style.boxShadow = greenBorder;
+document.getElementById("Projects").style.fontSize = hindiFontSize;
+  document.getElementById("Projects").style.fontFamily = hindiFontFamily;
+  document.getElementById("Projects").style.color = "#74EE15";
+  document.getElementById("Projects").value = "काम";
+  setTimeout("Projects2()", delayTime);
 }
-function Contact2() {
-  document.getElementById("Contact").style.fontSize = englishFontSize;
-  document.getElementById("Contact").style.fontFamily = englishFontFamily;
-//   document.getElementById("Contact").style.color = "#1fffff";
-  document.getElementById("Contact").value = "04.Contact";
+function Projects2() {
+document.getElementById("Projects").style.fontSize = englishFontSize;
+  document.getElementById("Projects").style.fontFamily = englishFontFamily;
+//   document.getElementById("Projects").style.color = "#1fffff";
+  document.getElementById("Projects").value = "01.Projects";
+}
+
+function Experience1() {
+document.getElementById("Experience").style.cursor = "cell";
+document.getElementById("Experience").style.boxShadow = yellowBorder;
+document.getElementById("Experience").style.fontSize = hindiFontSize;
+  document.getElementById("Experience").style.fontFamily = hindiFontFamily;
+  document.getElementById("Experience").style.color = "#FFE700";
+  document.getElementById("Experience").value = "अनुभव";
+  setTimeout("Experience2()", delayTime);
+}
+function Experience2() {
+document.getElementById("Experience").style.fontSize = englishFontSize;
+  document.getElementById("Experience").style.fontFamily = englishFontFamily;
+//   document.getElementById("Experience").style.color = "#1fffff";
+  document.getElementById("Experience").value = "02.Experience";
+}
+
+function YouTube1() {
+document.getElementById("YouTube").style.cursor = "cell";
+document.getElementById("YouTube").style.boxShadow = pinkBorder;
+document.getElementById("YouTube").style.fontSize = hindiFontSize;
+  document.getElementById("YouTube").style.fontFamily = hindiFontFamily;
+  document.getElementById("YouTube").style.color = "#F000FF";
+  document.getElementById("YouTube").value = "यूट्यूब";
+  setTimeout("YouTube2()", delayTime);
+}
+function YouTube2() {
+  document.getElementById("YouTube").style.fontSize = englishFontSize;
+  document.getElementById("YouTube").style.fontFamily = englishFontFamily;
+//   document.getElementById("YouTube").style.color = "#1fffff";
+  document.getElementById("YouTube").value = "03.YouTube";
+}
+
+function Resume1() {
+document.getElementById("Resume").style.cursor = "cell";
+document.getElementById("Resume").style.boxShadow = dblueBorder;
+document.getElementById("Resume").style.fontSize = hindiFontSize;
+  document.getElementById("Resume").style.fontFamily = hindiFontFamily;
+  document.getElementById("Resume").style.color = "#001EFF";
+  document.getElementById("Resume").value = "सी.वी";
+  setTimeout("Resume2()", delayTime);
+}
+function Resume2() {
+  document.getElementById("Resume").style.fontSize = englishFontSize;
+  document.getElementById("Resume").style.fontFamily = englishFontFamily;
+//   document.getElementById("Resume").style.color = "#1fffff";
+  document.getElementById("Resume").value = "04.Resume";
 }
 
 
