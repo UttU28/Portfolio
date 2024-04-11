@@ -10,15 +10,8 @@ on:
         type: string
 
 jobs:
-  greet:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send greeting
-        run: echo "Hello ${{ inputs.name }}"
-
   trigger_changes:
     runs-on: ubuntu-latest
-    needs: greet
     if: github.ref == 'refs/heads/deployment'
     steps:
       - name: Trigger Changes
