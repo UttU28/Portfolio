@@ -1,47 +1,41 @@
-// <!-- <div class="projTypes">
-//     <div class="blockWords">EDU-AR</div>
-//     <div class="skillsText">|| Unity 3D | Android Studio | AR Core | Tensorflow | Pandas | NumPy | Matplotlib | Keras ||</div>
-//     <div class="normalText">● Developed an android application aimed at assisting preschoolers with challenges, hearing, and speech impairments.<br> ● Implemented <span class="important">Augmented Reality</span> technology in conjunction with <span class="important">deep learning models</span> such as CNN with a 95% accuracy rate, <span class="important">Image Processing</span> utilizing TensorFlow & Keras, and integrated <span class="important">Google Vision API</span> for Handwriting Analysis, as well as Sign Language assistance.<br> ● Received recognition for the <span class="important">Innovative Idea</span> award in 2020 and published a paper in the <span class="important">IOSRJEN</span> in May 2021.</div>
-// </div> -->
+var arrayVariable = [
+    ['00. GRE-Words (VoKyaBolRahi)','|| Python | NumPy | Pillow | Flask | Android Studio ||',"Developed Python script to automate Video Creation and Uploading (English Teaching Reels) on Instagram. Collecting raw videos using PlayPhrase.me API. Implemented FFMPEG to seamlessly overlay logos, images, and merge multiple video clips with professional-grade transitions, achieving a polished, desktop-like editing quality. Integrated WhisperAI API for automated subtitle generation, ensuring accurate timestamp and relevance. Used Pillow and FFMPEG to embed subtitles into videos at timestamps. Utilized Google Drive API for storing and organizing finalized videos, ensuring Free and scalable cloud-based storage. Managed video URLs in Azure Blob Storage in JSON format. Orchestrated workflow using Azure Logic Apps to automate video processing tasks. Integrated Logic Apps with Azure services for seamless task coordination, ensuring efficient and timely video production. Automated Instagram video uploads and configuration using Selenium. Managed login, video upload, and description configuration on the Instagram platform, enhancing social media content management.",''],
+    ['01. Driver Drowsiness Detection','|| Python | OpenCV | Keras | Arduino UNO | Raspberry Pi ||'," ● Developed a Drowsiness Detector to address sleep-related accidents on the road. <br> ● Implemented Haar-cascade, OpenCV & Keras to detect drowsiness by analyzing the driver's eye state. <br> ● Integrated Arduino with GSM and GPS modules to send an SOS signal to emergency contacts.",''],
+    ['02. EDU-AR','|| Unity 3D | Android Studio | AR Core | Tensorflow | Pandas | NumPy | Matplotlib | Keras ||',"Developed 'EDU-AR' an Android application targeting preschoolers with cognitive challenges, incorporating features for hearing and speech aid. Implemented Augmented Reality (AR) using AR Core in Unity3D and integrated Deep Learning models, specifically CNNs achieving 95% accuracy, utilizing TensorFlow and Keras for image processing tasks. Integrated Google Vision API for Handwriting Analysis OCR to facilitate automatic recognition and interpretation of handwritten content within the application. Assisted with Sign Language interpretation, enhancing accessibility for users with hearing impairments. Authored and published a paper in the international journal IOSRJEN (May 2021, Volume 11, Issue 5, E-ISSN: 2250-3021), detailing the technical advancements and educational benefits of the EDU-AR application.",''],
+    ['02. EDU-AR','|| Unity 3D | Android Studio | AR Core | Tensorflow | Pandas | NumPy | Matplotlib | Keras ||',"Developed 'EDU-AR' an Android application targeting preschoolers with cognitive challenges, incorporating features for hearing and speech aid. Implemented Augmented Reality (AR) using AR Core in Unity3D and integrated Deep Learning models, specifically CNNs achieving 95% accuracy, utilizing TensorFlow and Keras for image processing tasks. Integrated Google Vision API for Handwriting Analysis OCR to facilitate automatic recognition and interpretation of handwritten content within the application. Assisted with Sign Language interpretation, enhancing accessibility for users with hearing impairments. Authored and published a paper in the international journal IOSRJEN (May 2021, Volume 11, Issue 5, E-ISSN: 2250-3021), detailing the technical advancements and educational benefits of the EDU-AR application.",''],
+    ['03. AssignmentX','|| Python | NumPy | Pillow | Flask | Android Studio ||',"Developed 'AssignmentX' an Android / Web application leveraging Python, NumPy, Pillow, Flask, and Android Studio to create handwritten-like assignments. Achieved over 5000+ downloads on Play Store, with 200+ daily active users and 32K+ YouTube views, showcasing widespread adoption and user engagement. Utilized Pillow and OpenCV2 for precise image processing of alphabet images to simulate handwritten pages within the application. Implemented a human behavioral algorithm to enhance the authenticity of the handwritten appearance of generated assignments. Designed and deployed a Python-based backend server hosted on AWS VMs, facilitating communication between the Android app and central server. Integrated Flask to develop a Web API enabling seamless interaction between the mobile app, website, and backend services. Implemented SMTP for email functionality, enabling users to send assignments as PDF attachments directly from the application.",''],
+];
 
-var arrayVariable = [['00. EDU-AR','|| Unity 3D | Android Studio | AR Core | Tensorflow | Pandas | NumPy | Matplotlib | Keras ||','● Developed an android application aimed at assisting preschoolers with challenges, hearing, and speech impairments.<br> ● Implemented <span class="important">Augmented Reality</span> technology in conjunction with <span class="important">deep learning models</span> such as CNN with a 95% accuracy rate, <span class="important">Image Processing</span> utilizing TensorFlow & Keras, and integrated <span class="important">Google Vision API</span> for Handwriting Analysis, as well as Sign Language assistance.<br> ● Received recognition for the <span class="important">Innovative Idea</span> award in 2020 and published a paper in the <span class="important">IOSRJEN</span> in May 2021.',''],
-                    ['01. Driver Drowsiness Detection','|| Python | OpenCV | Keras | Arduino UNO | Raspberry Pi ||'," ● Developed a Drowsiness Detector to address sleep-related accidents on the road. <br> ● Implemented Haar-cascade, OpenCV & Keras to detect drowsiness by analyzing the driver's eye state. <br> ● Integrated Arduino with GSM and GPS modules to send an SOS signal to emergency contacts.",''],
-                    ['02. AssignmentX','|| Python | NumPy | Pillow | Flask | Android Studio ||',"● Developed an android application that generated assignments with a handwritten appearance, resulting in over 5000+ downloads on Play Store and 200+ daily active users. The accompanying YouTube channel received over 32K+ views. <br> ● Utilized the Pillow library in Python to process images of alphabets and incorporated a human behavioral algorithm to mimic natural handwriting. <br> ● Created an Android app and established a Web API using Flask for seamless communication with the main code.",''],
-                ]
-arrayLength = arrayVariable.length;
+var arrayLength = arrayVariable.length;
+var classArray = ["blockWords", "skillsText", "normalText", "linkText"];
 
-var classArray = ["blockWords", "skillsText", "normalText", "linkText"]
-
-
-
-sampleText = "";
-for (i = 0; i < arrayLength; i++) {
-    sampleText += '<div class="projIndexes ' + i + '" onclick="show('+ i +')">0'+ i +'</div>';
+var sampleText = "";
+for (var i = 0; i < arrayLength; i++) {
+    sampleText += '<div class="projIndexes ' + i + '" onclick="show(' + i + ')">0' + i + '</div>';
 }
 document.getElementsByClassName("projTextIndexNavigation")[0].innerHTML += sampleText;
 
-
-for (i = 0; i < arrayLength; i++) {
-    var finalText = '<div class="projTypes '+ i +'">';
-    for (j=0; j<4; j++){
+for (var i = 0; i < arrayLength; i++) {
+    var finalText = '<div class="projTypes ' + i + '">';
+    for (var j = 0; j < 4; j++) {
         finalText += '<div class="' + classArray[j] + '">' + arrayVariable[i][j] + '</div>';
     }
     finalText += '</div>';
     document.getElementsByClassName("projectsText")[0].innerHTML += finalText;
-    if (i!=0){
+    if (i != 0) {
         document.getElementsByClassName("projTypes " + i)[0].style.display = 'none';
     }
 }
 
-function show(index){
-    allData = document.getElementsByClassName('projTextIndexNavigation')[0].getElementsByClassName('projIndexes');
-    for (i=0; i<arrayLength; i ++){
-        if (i == index){
+function show(index) {
+    var allData = document.getElementsByClassName('projIndexes');
+    for (var i = 0; i < arrayLength; i++) {
+        if (i == index) {
             document.getElementsByClassName("projTypes " + i)[0].style.display = 'block';
-            document.getElementsByClassName("projIndexes " + i)[0].style.backgroundcolor = '#1fffff';
-        } else{
+            allData[i].style.backgroundColor = '#1fffff';
+        } else {
             document.getElementsByClassName("projTypes " + i)[0].style.display = 'none';
-            document.getElementsByClassName("projIndexes " + i)[0].style.backgroundcolor = 'none';
+            allData[i].style.backgroundColor = '';
         }
     }
 }
