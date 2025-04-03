@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  scroll-padding-top: 80px; /* Accounts for fixed header height */
+  scroll-snap-type: y proximity;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 120%; /* Increased base font size by 20% */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+  color: white;
+  background-color: #1a1a1a;
+}
+
+#root {
+  height: 100%;
+}
+
+section {
+  min-height: 100vh;
+  padding-top: 120px; /* Increased padding to ensure sections start properly below the navbar */
+  padding-bottom: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Add a specific rule for mobile */
+@media (max-width: 768px) {
+  section {
+    padding-top: 80px;
+  }
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+/* Section headings with chalk effect */
+.section-heading {
+  font-family: 'Architects Daughter', cursive;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 3.5rem; /* Increased from 3rem */
+}
+
+h2 {
+  font-size: 2.8rem; /* Increased from 2.5rem */
+}
+
+h3 {
+  font-size: 2.3rem; /* Increased from 2rem */
+}
+
+h4 {
+  font-size: 1.8rem; /* Increased from 1.5rem */
+}
+
+p {
+  font-size: 1.2rem; /* Increased from 1rem */
+  line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Class for handwritten text */
+.handwritten {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+}
+
+/* Class for sections */
+.section-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Animation classes */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Apply different float animation times to create an organic feel */
+.animate-float-1 {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float 4.5s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Add padding at the bottom of the page on mobile to account for the tab bar */
+@media (max-width: 768px) {
+  main {
+    padding-bottom: 80px; /* Height of the mobile tab bar plus some padding */
+  }
+  
+  footer {
+    margin-bottom: 70px; /* Ensure footer content is visible above the tab bar */
+  }
+}
