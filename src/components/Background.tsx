@@ -22,7 +22,7 @@ export const Background: React.FC = () => {
       <div 
         className="fixed inset-0 z-0" 
         style={{ 
-          backgroundImage: `url('/background.jpg')`,
+          backgroundImage: `url('/images/backgrounds/background.jpg')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',

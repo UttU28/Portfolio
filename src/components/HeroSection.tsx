@@ -78,7 +78,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             rel="noopener noreferrer"
           >
             <img 
-              src="/gitHub.png" 
+              src="/images/social/gitHub.png" 
               alt="GitHub" 
               className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
             />
@@ -89,7 +89,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             rel="noopener noreferrer"
           >
             <img 
-              src="/linkedIn.png" 
+              src="/images/social/linkedIn.png" 
               alt="LinkedIn" 
               className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
               style={{filter: "drop-shadow(0 0 1px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 1px rgba(37, 99, 235, 0.8))"}}
@@ -101,7 +101,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
             rel="noopener noreferrer"
           >
             <img 
-              src="/youTube.png" 
+              src="/images/social/youTube.png" 
               alt="YouTube" 
               className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
               style={{filter: "drop-shadow(0 0 1px rgba(239, 68, 68, 0.8)) drop-shadow(0 0 1px rgba(220, 38, 38, 0.8))"}}
@@ -119,7 +119,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
         <div className="relative w-80 h-80 md:w-[28rem] md:h-[28rem] flex items-center justify-center">
           <div className="relative w-64 h-64 md:w-96 md:h-96">
             <img 
-              src="/chalkLogo.png" 
+              src="/images/logo/chalkLogo.png" 
               alt="Chalk Logo" 
               className="w-full h-full object-contain"
             />

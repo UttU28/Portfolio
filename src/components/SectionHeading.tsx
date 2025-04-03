@@ -31,7 +31,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
           <motion.div
             className="w-full h-[20px] bg-contain bg-no-repeat bg-center"
             style={{ 
-              backgroundImage: 'url(/chalkLine.png)',
+              backgroundImage: 'url(/images/ui/chalkLine.png)',
               transform: 'translateY(-2px)'
             }}
             initial={{ scaleX: 0 }}
@@ -50,7 +50,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
           <motion.div
             className="w-full h-[15px] bg-contain bg-no-repeat bg-center"
             style={{ 
-              backgroundImage: 'url(/chalkLine.png)',
+              backgroundImage: 'url(/images/ui/chalkLine.png)',
               transform: 'translateY(-1px)'
             }}
             initial={{ scaleX: 0 }}
@@ -101,7 +101,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
           <motion.div
             className="w-full h-[20px] bg-contain bg-no-repeat bg-center"
             style={{ 
-              backgroundImage: 'url(/chalkLine.png)',
+              backgroundImage: 'url(/images/ui/chalkLine.png)',
               transform: 'translateY(-2px) scaleY(-1)'
             }}
             initial={{ scaleX: 0 }}
@@ -120,7 +120,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
           <motion.div
             className="w-full h-[15px] bg-contain bg-no-repeat bg-center"
             style={{ 
-              backgroundImage: 'url(/chalkLine.png)',
+              backgroundImage: 'url(/images/ui/chalkLine.png)',
               transform: 'translateY(-1px) scaleY(-1)'
             }}
             initial={{ scaleX: 0 }}

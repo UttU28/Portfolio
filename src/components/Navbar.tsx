@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { NavItem } from '../App';
-import logoImage from '../assets/images/logo.png';
 
 // Hindi translations for navbar items
 const hindiTranslations: { [key: string]: string } = {
@@ -10,7 +9,8 @@ const hindiTranslations: { [key: string]: string } = {
   'Skills': 'कौशल',
   'Projects': 'परियोजनाएँ',
   'Contact': 'संपर्क',
-  'ThatInsaneGuy': 'यत्र तत्र सर्वत्र शिव'
+  'ThatInsaneGuy': 'यत्र तत्र सर्वत्र शिव',
+  'Old Site': 'पुरानी'
 };
 
 interface NavbarProps {
@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
                   scrollToSection('home');
                 }}
               >
-                <img src={logoImage} alt="Logo" className="h-8 w-auto mr-2" />
+                <img src="/images/logo/logo.png" alt="Logo" className="h-8 w-auto mr-2" />
                 <span 
                   className="text-3xl font-bold text-white tracking-wide font-heading w-64 block" 
                   style={{ textShadow: '1px 1px 2px rgba(255, 255, 255, 0.3)' }}
@@ -116,6 +116,32 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
                     </span>
                   </motion.a>
                 ))}
+                
+                {/* Old Site Button */}
+                <motion.a
+                  href="https://oldthatinsaneguy28.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-xl cursor-pointer transition-all duration-100 ease-in-out font-bold
+                    ${hoveredItem === "Old Site" ? 'font-hindi' : 'font-handwriting'} 
+                    ${hoveredItem === "Old Site" ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-300 hover:text-white'}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * navItems.length }}
+                  onMouseEnter={() => setHoveredItem("Old Site")}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  <span className={`block text-center transition-all duration-300 ease-in-out w-24`}>
+                    <span 
+                      style={{ 
+                        display: 'inline-block', 
+                        paddingTop: hoveredItem === "Old Site" ? '4px' : '0' 
+                      }}
+                    >
+                      {hoveredItem === "Old Site" ? hindiTranslations["Old Site"] : "Old Site"}
+                    </span>
+                  </span>
+                </motion.a>
               </motion.div>
             </div>
           </div>

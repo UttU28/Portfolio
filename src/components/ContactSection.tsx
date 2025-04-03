@@ -44,9 +44,10 @@ export const ContactSection: React.FC = () => {
     {
       icon: (
         <img 
-          src="/linkedIn.png" 
+          src="/images/social/linkedIn.png" 
           alt="LinkedIn" 
           className="w-10 h-10 object-contain"
+          style={{filter: "drop-shadow(0 0 1px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 1px rgba(37, 99, 235, 0.8))"}}
         />
       ),
       label: 'LinkedIn',
@@ -56,7 +57,7 @@ export const ContactSection: React.FC = () => {
     {
       icon: (
         <img 
-          src="/gitHub.png" 
+          src="/images/social/gitHub.png" 
           alt="GitHub" 
           className="w-10 h-10 object-contain"
         />
@@ -68,7 +69,7 @@ export const ContactSection: React.FC = () => {
     {
       icon: (
         <img 
-          src="/instaG.png" 
+          src="/images/social/instaG.png" 
           alt="Instagram" 
           className="w-10 h-10 object-contain"
         />
@@ -80,9 +81,10 @@ export const ContactSection: React.FC = () => {
     {
       icon: (
         <img 
-          src="/youTube.png" 
+          src="/images/social/youTube.png" 
           alt="YouTube" 
           className="w-10 h-10 object-contain"
+          style={{filter: "drop-shadow(0 0 1px rgba(239, 68, 68, 0.8)) drop-shadow(0 0 1px rgba(220, 38, 38, 0.8))"}}
         />
       ),
       label: 'YouTube',
@@ -227,9 +229,10 @@ export const ContactSection: React.FC = () => {
                         className="transform hover:scale-105 transition-transform duration-200 focus:outline-none m-0 p-0"
                       >
                         <img 
-                          src="/sendButton.png" 
+                          src="/images/ui/sendButton.png" 
                           alt="Send Message" 
                           className="h-12 object-contain"
+                          style={{ display: 'block', margin: 0, padding: 0 }}
                         />
                       </button>
                     )}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { Disclosure, Transition } from '@headlessui/react';
 import { NavItem } from '../App';
-import logoImage from '../assets/images/logo.png';
 
 interface MobileNavProps {
   navItems: NavItem[];
@@ -23,7 +22,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ navItems, gridStyle, scrol
                     className="flex-shrink-0 flex items-center cursor-pointer"
                     onClick={() => scrollToSection('home')}
                   >
-                    <img src={logoImage} alt="Logo" className="h-6 w-auto mr-2" />
+                    <img src="/images/logo/logo.png" alt="Logo" className="h-6 w-auto mr-2" />
                     <span className="text-3xl font-bold font-heading text-white">
                       ThatInsaneGuy
                     </span>
