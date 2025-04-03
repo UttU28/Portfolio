@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Github, Instagram, Youtube, Send } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
 
 export const ContactSection: React.FC = () => {
@@ -43,25 +42,49 @@ export const ContactSection: React.FC = () => {
 
   const contactLinks = [
     {
-      icon: <Linkedin className="w-5 h-5" />,
+      icon: (
+        <img 
+          src="/linkedIn.png" 
+          alt="LinkedIn" 
+          className="w-10 h-10 object-contain"
+        />
+      ),
       label: 'LinkedIn',
       value: 'linkedin/utsavmaan28',
       url: 'https://linkedin.com/in/utsavmaan28'
     },
     {
-      icon: <Github className="w-5 h-5" />,
+      icon: (
+        <img 
+          src="/gitHub.png" 
+          alt="GitHub" 
+          className="w-10 h-10 object-contain"
+        />
+      ),
       label: 'GitHub',
       value: 'github.com/UttU28',
       url: 'https://github.com/UttU28'
     },
     {
-      icon: <Instagram className="w-5 h-5" />,
+      icon: (
+        <img 
+          src="/instaG.png" 
+          alt="Instagram" 
+          className="w-10 h-10 object-contain"
+        />
+      ),
       label: 'Instagram',
       value: '@uttu28',
       url: 'https://www.instagram.com/uttu28/'
     },
     {
-      icon: <Youtube className="w-5 h-5" />,
+      icon: (
+        <img 
+          src="/youTube.png" 
+          alt="YouTube" 
+          className="w-10 h-10 object-contain"
+        />
+      ),
       label: 'YouTube',
       value: 'ThatInsaneGuy',
       url: '#'
@@ -96,8 +119,8 @@ export const ContactSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + (index * 0.1), duration: 0.5 }}
             >
-              <div className="mr-5 p-3.5 rounded-full bg-white/10 transition-colors group-hover:bg-white/15">
-                {React.cloneElement(link.icon, { className: "w-6 h-6" })}
+              <div className="mr-5 transition-colors">
+                {link.icon}
               </div>
               <div>
                 <div className="text-sm text-gray-400 font-handwriting mb-1">{link.label}</div>
@@ -190,31 +213,26 @@ export const ContactSection: React.FC = () => {
                     />
                   </div>
                   
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-heading text-white transition-all duration-300 ${
-                        isSubmitting 
-                          ? 'bg-blue-600/50 cursor-not-allowed' 
-                          : 'bg-blue-600 hover:bg-blue-700 transform hover:scale-[1.02]'
-                      }`}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send Message
-                          <Send className="ml-2 w-5 h-5" />
-                        </>
-                      )}
-                    </button>
+                  <div className="flex justify-center">
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <svg className="animate-spin h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                      </div>
+                    ) : (
+                      <button
+                        type="submit"
+                        className="transform hover:scale-105 transition-transform duration-200 focus:outline-none m-0 p-0"
+                      >
+                        <img 
+                          src="/sendButton.png" 
+                          alt="Send Message" 
+                          className="h-12 object-contain"
+                        />
+                      </button>
+                    )}
                   </div>
                 </div>
               </form>

@@ -29,6 +29,24 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
     if (name === 'Skills' || name === 'About') return 'w-20';
     return 'w-16'; // For Home or other items
   };
+  
+  // Define hover colors for each nav item
+  const getNavItemHoverColor = (name: string): string => {
+    switch(name) {
+      case 'Home':
+        return 'text-blue-400 hover:text-blue-300';
+      case 'Projects':
+        return 'text-purple-400 hover:text-purple-300';
+      case 'Skills':
+        return 'text-green-400 hover:text-green-300';
+      case 'About':
+        return 'text-orange-400 hover:text-orange-300';
+      case 'Contact':
+        return 'text-red-400 hover:text-red-300';
+      default:
+        return 'text-gray-300 hover:text-white';
+    }
+  };
 
   return (
     <div className="hidden md:block">
@@ -72,8 +90,9 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
-                    className={`flex items-center space-x-1 px-3 py-2 rounded-md text-xl cursor-pointer transition-all duration-300 ease-in-out text-gray-300 hover:text-white font-bold
-                      ${hoveredItem === item.name ? 'font-hindi' : 'font-handwriting'}`}
+                    className={`flex items-center space-x-1 px-3 py-2 rounded-md text-xl cursor-pointer transition-all duration-100 ease-in-out font-bold
+                      ${hoveredItem === item.name ? 'font-hindi' : 'font-handwriting'} 
+                      ${hoveredItem === item.name ? getNavItemHoverColor(item.name) : 'text-gray-300 hover:text-white'}`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 * index }}
@@ -86,7 +105,14 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
                   >
                     {/* Icons removed from desktop view */}
                     <span className={`block text-center transition-all duration-300 ease-in-out ${getNavItemWidth(item.name)}`}>
-                      {hoveredItem === item.name && hindiTranslations[item.name] ? hindiTranslations[item.name] : item.name}
+                      <span 
+                        style={{ 
+                          display: 'inline-block', 
+                          paddingTop: hoveredItem === item.name && hindiTranslations[item.name] ? '4px' : '0' 
+                        }}
+                      >
+                        {hoveredItem === item.name && hindiTranslations[item.name] ? hindiTranslations[item.name] : item.name}
+                      </span>
                     </span>
                   </motion.a>
                 ))}
