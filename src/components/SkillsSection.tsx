@@ -57,7 +57,7 @@ export const SkillsSection: React.FC = () => {
     { name: "Ansible", category: "Cloud & DevOps", color: "bg-purple-500 text-white", projectsUsed: ["Config whisperer for that one perfect deploy"] },
   
     // Tools & Platforms
-    { name: "Git/GitHub", category: "Tools & Platforms", color: "bg-pink-400 text-white", projectsUsed: ["All projects – because what’s a dev without Git?"] },
+    { name: "Git/GitHub", category: "Tools & Platforms", color: "bg-pink-400 text-white", projectsUsed: ["All projects – because what's a dev without Git?"] },
     { name: "Selenium", category: "Tools & Platforms", color: "bg-pink-500 text-white", projectsUsed: ["LinkedIn Bot – Data Automation", "AutoGramBot – Upload Automation"] },
     { name: "FFMPEG", category: "Tools & Platforms", color: "bg-pink-600 text-white", projectsUsed: ["AutoGramBot – Advanced Video Editing"] },
     { name: "Whisper AI", category: "Tools & Platforms", color: "bg-pink-700 text-white", projectsUsed: ["AutoGramBot – Subtitle Generation", "Apeksha – Voice Integration"] },
@@ -105,7 +105,7 @@ export const SkillsSection: React.FC = () => {
       {/* Category filters */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
         <button
-          className={`px-3 py-1 rounded-full text-base font-handwriting hover:scale-105 transition-transform ${
+          className={`px-3 py-1 rounded-full text-2xl font-handwriting hover:scale-105 transition-transform ${
             activeCategory === null ? 'bg-white/20 text-white' : 'bg-white/10 text-gray-300'
           } transition-colors`}
           onClick={() => handleCategoryChange(null)}
@@ -115,7 +115,7 @@ export const SkillsSection: React.FC = () => {
         {categories.map(category => (
           <button
             key={category}
-            className={`px-3 py-1 rounded-full text-base font-handwriting hover:scale-105 transition-transform ${
+            className={`px-3 py-1 rounded-full text-2xl font-handwriting hover:scale-105 transition-transform ${
               activeCategory === category ? 'bg-white/20 text-white' : 'bg-white/10 text-gray-300'
             } transition-colors`}
             onClick={() => handleCategoryChange(category)}
@@ -133,9 +133,9 @@ export const SkillsSection: React.FC = () => {
             // Calculate sizes for visual variety
             const size = Math.floor((index % 3) + 1);
             const sizeClass = [
-              'text-base', 
-              'text-lg', 
-              'text-xl'
+              'text-2xl', 
+              'text-2xl', 
+              'text-2xl'
             ][size - 1];
             
             return (
@@ -160,20 +160,20 @@ export const SkillsSection: React.FC = () => {
           <div 
             className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-lg rounded-lg p-4 text-white shadow-xl border border-white/10 max-w-xs"
           >
-            <p className="text-lg font-bold font-handwriting">{hoveredSkill.name}</p>
-            <p className="text-sm font-handwriting mb-1">Category: {hoveredSkill.category}</p>
+            <p className="text-2xl font-bold font-handwriting">{hoveredSkill.name}</p>
+            <p className="text-lg font-handwriting mb-1">Category: {hoveredSkill.category}</p>
             
             {/* Projects used section */}
             <div className="mt-2">
-              <p className="text-sm font-semibold font-handwriting underline">Projects:</p>
+              <p className="text-lg font-semibold font-handwriting underline">Projects:</p>
               {hoveredSkill.projectsUsed && hoveredSkill.projectsUsed.length > 0 ? (
-                <ul className="list-disc list-inside text-xs">
+                <ul className="list-disc list-inside text-sm">
                   {hoveredSkill.projectsUsed.map((project, idx) => (
                     <li key={idx} className="font-handwriting">{project}</li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-xs italic font-handwriting">No projects showcased yet</p>
+                <p className="text-sm italic font-handwriting">No projects showcased yet</p>
               )}
             </div>
           </div>
@@ -189,7 +189,7 @@ export const SkillsSection: React.FC = () => {
             onClick={() => handleCategoryChange(category as string)}
           >
             <div className={`w-3 h-3 rounded-full ${color} mr-2`}></div>
-            <span className="text-sm text-gray-300">{category}</span>
+            <span className="text-lg text-gray-300">{category}</span>
           </div>
         ))}
       </div>

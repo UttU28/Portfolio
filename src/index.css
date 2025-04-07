@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 120%; /* Increased base font size by 20% */
+  font-size: 140%; /* Increased base font size by 40% */
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -59,23 +59,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.5rem; /* Increased from 3rem */
+  font-size: 4rem; /* Increased further */
 }
 
 h2 {
-  font-size: 2.8rem; /* Increased from 2.5rem */
+  font-size: 3.2rem; /* Increased further */
 }
 
 h3 {
-  font-size: 2.3rem; /* Increased from 2rem */
+  font-size: 2.6rem; /* Increased further */
 }
 
 h4 {
-  font-size: 1.8rem; /* Increased from 1.5rem */
+  font-size: 2.1rem; /* Increased further */
 }
 
 p {
-  font-size: 1.2rem; /* Increased from 1rem */
+  font-size: 1.4rem; /* Increased further */
   line-height: 1.6;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ProjectProps } from './ProjectCard';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Github as GithubIcon, ExternalLink as ExternalLinkIcon } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
 
 export const ProjectsSection: React.FC = () => {
@@ -247,7 +247,7 @@ export const ProjectsSection: React.FC = () => {
       <SectionHeading>Projects</SectionHeading>
       
       <motion.p
-        className="text-gray-300 text-center max-w-3xl mx-auto mb-12 font-handwriting text-xl"
+        className="text-gray-300 text-center max-w-3xl mx-auto mb-12 font-handwriting text-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
@@ -288,16 +288,16 @@ export const ProjectsSection: React.FC = () => {
                     {/* Header with Title, Tech, and Image */}
                     <div className="flex flex-col md:flex-row gap-4 mb-4">
                       <div className="flex-grow">
-                        <h3 className="text-xl md:text-2xl font-bold font-heading mb-1 text-white">{project.title}</h3>
-                        <p className={`text-gray-400 text-sm mb-3 italic ${
+                        <h3 className="text-2xl md:text-3xl font-bold font-heading mb-1 text-white">{project.title}</h3>
+                        <p className={`text-gray-400 text-2xl mb-3 italic ${
                           project.title === "AssignmentX – Handwritten Assignment Generator" 
                             ? "font-handwriting" 
                             : "font-heading"
                         }`}>{project.subtitle}</p>
                         
                         <div>
-                          <h4 className="text-base font-semibold text-gray-400 mb-2 font-heading">Tech Stack:</h4>
-                          <p className={`text-gray-300 text-sm ${
+                          <h4 className="text-2xl font-semibold text-gray-400 mb-2 font-heading">Tech Stack:</h4>
+                          <p className={`text-gray-300 text-2xl ${
                             project.title === "AssignmentX – Handwritten Assignment Generator" 
                               ? "font-handwriting" 
                               : "font-heading"
@@ -320,7 +320,7 @@ export const ProjectsSection: React.FC = () => {
                     {/* Button to toggle description */}
                     <button 
                       onClick={() => toggleDescription(project.title)}
-                      className={`mt-2 flex items-center text-blue-400 hover:text-blue-300 text-sm ${
+                      className={`mt-2 flex items-center text-blue-400 hover:text-blue-300 text-2xl ${
                         project.title === "AssignmentX – Handwritten Assignment Generator" 
                           ? "font-handwriting" 
                           : "font-heading"
@@ -349,8 +349,8 @@ export const ProjectsSection: React.FC = () => {
                           transition={{ duration: 0.3 }}
                           className="overflow-hidden mt-4 w-full"
                         >
-                          <h4 className="text-base font-semibold text-gray-400 mb-2 font-heading">Description:</h4>
-                          <p className={`text-gray-300 text-sm leading-relaxed ${
+                          <h4 className="text-2xl font-semibold text-gray-400 mb-2 font-heading">Description:</h4>
+                          <p className={`text-gray-300 text-2xl leading-relaxed ${
                             project.title === "AssignmentX – Handwritten Assignment Generator" 
                               ? "font-handwriting" 
                               : "font-heading"
@@ -365,8 +365,9 @@ export const ProjectsSection: React.FC = () => {
                                   href={project.links.github} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors"
+                                  className="flex items-center gap-2 text-2xl px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors"
                                 >
+                                  <GithubIcon size={16} />
                                   <span>GitHub</span>
                                 </a>
                               )}
@@ -376,8 +377,9 @@ export const ProjectsSection: React.FC = () => {
                                   href={project.links.demo} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-blue-900 text-blue-100 hover:bg-blue-800 transition-colors"
+                                  className="flex items-center gap-2 text-2xl px-3 py-1.5 rounded-lg bg-blue-900 text-blue-100 hover:bg-blue-800 transition-colors"
                                 >
+                                  <ExternalLinkIcon size={16} />
                                   <span>Demo</span>
                                 </a>
                               )}
@@ -388,8 +390,9 @@ export const ProjectsSection: React.FC = () => {
                                   href={link.url} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-purple-900 text-purple-100 hover:bg-purple-800 transition-colors"
+                                  className="flex items-center gap-2 text-2xl px-3 py-1.5 rounded-lg bg-purple-900 text-purple-100 hover:bg-purple-800 transition-colors"
                                 >
+                                  <ExternalLinkIcon size={16} />
                                   <span>{link.label}</span>
                                 </a>
                               ))}

@@ -15,7 +15,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
         transition={{ duration: 0.5 }}
       >
         <motion.h1 
-          className="text-4xl md:text-6xl font-bold font-heading mb-6 text-center md:text-left"
+          className="text-5xl md:text-7xl font-bold font-heading mb-6 text-center md:text-left"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           Utsav Chaudhary
         </motion.h1>
         <motion.p 
-          className="text-gray-300 text-xl md:text-3xl font-handwriting mb-8 text-center md:text-left"
+          className="text-gray-300 text-2xl md:text-3xl font-handwriting mb-8 text-center md:text-left"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 rounded-lg font-handwriting text-lg text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg"
+            className="px-8 py-3 rounded-lg font-handwriting text-2xl text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg"
             onClick={() => {
               console.log("Project button clicked");
               scrollToSection('projects');
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 rounded-lg font-handwriting text-lg text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg"
+            className="px-8 py-3 rounded-lg font-handwriting text-2xl text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg"
             onClick={() => {
               console.log("About button clicked");
               scrollToSection('about');

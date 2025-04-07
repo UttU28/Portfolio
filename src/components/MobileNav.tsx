@@ -60,7 +60,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ navItems, gridStyle, scrol
                     <Disclosure.Button
                       key={item.name}
                       as="a"
-                      className="flex items-center space-x-2 px-3 py-2 rounded-md text-lg font-handwriting text-gray-300 hover:text-white hover:bg-gray-700 cursor-pointer"
+                      className="flex items-center space-x-2 px-3 py-2 rounded-md text-2xl font-handwriting text-gray-300 hover:text-white hover:bg-gray-700 cursor-pointer"
                       onClick={() => {
                         scrollToSection(item.sectionId);
                         close();

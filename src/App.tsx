@@ -132,7 +132,7 @@ function App() {
             </section>
             
             {/* Footer */}
-            <footer className="py-8 text-center text-gray-500 text-sm px-4 max-w-7xl mx-auto" data-scroll-section>
+            <footer className="py-8 text-center text-gray-500 text-lg px-4 max-w-7xl mx-auto" data-scroll-section>
               <p>© {new Date().getFullYear()} Utsav Chaudhary. All rights reserved.</p>
             </footer>
           </main>

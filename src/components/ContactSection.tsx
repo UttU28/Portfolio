@@ -51,7 +51,7 @@ export const ContactSection: React.FC = () => {
         />
       ),
       label: 'LinkedIn',
-      value: 'linkedin/utsavmaan28',
+      value: 'in/utsavmaan28',
       url: 'https://linkedin.com/in/utsavmaan28'
     },
     {
@@ -108,7 +108,7 @@ export const ContactSection: React.FC = () => {
         Let's connect and maybe we can build something amazing together!"
       />
       
-      <div className="max-w-2xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {contactLinks.map((link, index) => (
             <motion.a
@@ -121,12 +121,12 @@ export const ContactSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + (index * 0.1), duration: 0.5 }}
             >
-              <div className="mr-5 transition-colors">
+              <div className="mr-5 transition-colors flex-shrink-0">
                 {link.icon}
               </div>
-              <div>
-                <div className="text-sm text-gray-400 font-handwriting mb-1">{link.label}</div>
-                <div className="text-white font-medium text-lg font-heading tracking-wide group-hover:text-blue-300 transition-colors duration-200">
+              <div className="flex-grow min-w-0">
+                <div className="text-xl text-gray-400 font-handwriting mb-1">{link.label}</div>
+                <div className="text-white font-medium text-2xl font-heading tracking-wide group-hover:text-blue-300 transition-colors duration-200 truncate">
                   {link.value}
                   <div className="h-px w-0 bg-blue-400/50 transition-all duration-200 ease-out group-hover:w-full"></div>
                 </div>
@@ -136,7 +136,7 @@ export const ContactSection: React.FC = () => {
         </div>
         
         <motion.p
-          className="text-gray-400 text-center mt-16 mb-8 font-handwriting text-lg"
+          className="text-gray-400 text-center mt-16 mb-8 font-handwriting text-2xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
@@ -152,7 +152,7 @@ export const ContactSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <h3 className="text-xl font-heading text-center text-white mb-6">Have an idea? Let's discuss!</h3>
+          <h3 className="text-2xl font-heading text-center text-white mb-6">Have an idea? Let's discuss!</h3>
           
           <div className="bg-black/30 backdrop-blur-md rounded-xl border border-white/10 p-6 md:p-8">
             {submitted ? (
@@ -167,14 +167,14 @@ export const ContactSection: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h4 className="text-xl font-heading text-white mb-2">Message Sent!</h4>
-                <p className="text-gray-400 font-handwriting">Thanks for reaching out. I'll get back to you soon!</p>
+                <h4 className="text-2xl font-heading text-white mb-2">Message Sent!</h4>
+                <p className="text-gray-400 font-handwriting text-2xl">Thanks for reaching out. I'll get back to you soon!</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-handwriting text-gray-400 mb-2">Your Name</label>
+                    <label htmlFor="name" className="block text-lg font-handwriting text-gray-400 mb-2">Your Name</label>
                     <input
                       type="text"
                       id="name"
@@ -188,7 +188,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-handwriting text-gray-400 mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-lg font-handwriting text-gray-400 mb-2">Email Address</label>
                     <input
                       type="email"
                       id="email"
@@ -202,7 +202,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-handwriting text-gray-400 mb-2">Your Message</label>
+                    <label htmlFor="message" className="block text-lg font-handwriting text-gray-400 mb-2">Your Message</label>
                     <textarea
                       id="message"
                       name="message"

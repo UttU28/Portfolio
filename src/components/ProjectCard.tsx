@@ -47,11 +47,11 @@ export const ProjectCard: React.FC<ProjectProps> = ({
           {/* Content column - takes most of the space */}
           <div className="flex-grow flex flex-col">
             <h3 className="text-2xl md:text-3xl font-bold font-heading mb-1 text-white">{title}</h3>
-            <p className="text-gray-400 text-base mb-3 italic font-handwriting">{subtitle}</p>
+            <p className="text-gray-400 text-lg mb-3 italic font-handwriting">{subtitle}</p>
             
             <div className="mb-4">
-              <h4 className="text-lg font-semibold text-gray-400 mb-2 font-heading">Tech Stack:</h4>
-              <p className="text-gray-300 text-base font-handwriting">{tech}</p>
+              <h4 className="text-2xl font-semibold text-gray-400 mb-2 font-heading">Tech Stack:</h4>
+              <p className="text-gray-300 text-lg font-handwriting">{tech}</p>
             </div>
           </div>
           
@@ -77,8 +77,8 @@ export const ProjectCard: React.FC<ProjectProps> = ({
               className="overflow-hidden"
             >
               <div className="mt-4 mb-6">
-                <h4 className="text-lg font-semibold text-gray-400 mb-2 font-heading">Description:</h4>
-                <p className="text-gray-300 text-base leading-relaxed font-handwriting">{description}</p>
+                <h4 className="text-2xl font-semibold text-gray-400 mb-2 font-heading">Description:</h4>
+                <p className="text-gray-300 text-lg leading-relaxed font-handwriting">{description}</p>
               </div>
               
               {links && (
@@ -127,7 +127,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
         
         <button 
           onClick={toggleExpand}
-          className="mt-4 flex items-center text-blue-400 hover:text-blue-300 text-base font-handwriting transition-colors"
+          className="mt-4 flex items-center text-blue-400 hover:text-blue-300 text-lg font-handwriting transition-colors"
         >
           {isExpanded ? (
             <>
