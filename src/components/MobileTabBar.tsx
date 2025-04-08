@@ -84,7 +84,7 @@ export const MobileTabBar: React.FC<MobileTabBarProps> = ({ navItems, gridStyle,
               {item.icon}
             </div>
             <div className="h-5 flex items-center justify-center">
-              <span className={`text-sm font-medium handwritten transition-all duration-300 ${clickedItem === item.name ? 'font-hindi' : ''}`}>
+              <span className={`text-xs font-medium handwritten transition-all duration-300 ${clickedItem === item.name ? 'font-hindi' : ''}`}>
                 <span 
                   style={{ 
                     display: 'inline-block', 

@@ -46,50 +46,64 @@ export const ContactSection: React.FC = () => {
         <img 
           src="/images/social/linkedIn.png" 
           alt="LinkedIn" 
-          className="w-10 h-10 object-contain"
-          style={{filter: "drop-shadow(0 0 1px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 1px rgba(37, 99, 235, 0.8))"}}
+          className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
+          style={{filter: "drop-shadow(0 0 6px rgba(59, 130, 246, 0.8))"}}
         />
       ),
       label: 'LinkedIn',
       value: 'in/utsavmaan28',
-      url: 'https://linkedin.com/in/utsavmaan28'
+      url: 'https://linkedin.com/in/utsavmaan28',
+      hoverColor: "text-blue-300",
+      borderColor: "group-hover:border-blue-400/40",
+      bgGlow: "group-hover:bg-blue-900/10"
     },
     {
       icon: (
         <img 
           src="/images/social/gitHub.png" 
           alt="GitHub" 
-          className="w-10 h-10 object-contain"
+          className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
+          style={{filter: "drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))"}}
         />
       ),
       label: 'GitHub',
       value: 'github.com/UttU28',
-      url: 'https://github.com/UttU28'
+      url: 'https://github.com/UttU28',
+      hoverColor: "text-white",
+      borderColor: "group-hover:border-white/40",
+      bgGlow: "group-hover:bg-white/5"
     },
     {
       icon: (
         <img 
           src="/images/social/instaG.png" 
           alt="Instagram" 
-          className="w-10 h-10 object-contain"
+          className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
+          style={{filter: "drop-shadow(0 0 6px rgba(168, 85, 247, 0.8))"}}
         />
       ),
       label: 'Instagram',
       value: '@uttu28',
-      url: 'https://www.instagram.com/uttu28/'
+      url: 'https://www.instagram.com/uttu28/',
+      hoverColor: "text-purple-300",
+      borderColor: "group-hover:border-purple-400/40",
+      bgGlow: "group-hover:bg-purple-900/10"
     },
     {
       icon: (
         <img 
           src="/images/social/youTube.png" 
           alt="YouTube" 
-          className="w-10 h-10 object-contain"
-          style={{filter: "drop-shadow(0 0 1px rgba(239, 68, 68, 0.8)) drop-shadow(0 0 1px rgba(220, 38, 38, 0.8))"}}
+          className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
+          style={{filter: "drop-shadow(0 0 6px rgba(239, 68, 68, 0.8))"}}
         />
       ),
       label: 'YouTube',
       value: 'ThatInsaneGuy',
-      url: '#'
+      url: '#',
+      hoverColor: "text-red-300",
+      borderColor: "group-hover:border-red-400/40",
+      bgGlow: "group-hover:bg-red-900/10"
     }
   ];
 
@@ -116,19 +130,23 @@ export const ContactSection: React.FC = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center p-5 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 hover:bg-black/40 transition-all duration-300 hover:scale-105 transform-gpu will-change-transform"
+              className={`group flex items-center p-5 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 hover:bg-black/40 transition-all duration-150 cursor-none ${link.borderColor} ${link.bgGlow}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + (index * 0.1), duration: 0.5 }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.15, ease: "easeOut" }
+              }}
+              data-cursor="link"
             >
               <div className="mr-5 transition-colors flex-shrink-0">
                 {link.icon}
               </div>
               <div className="flex-grow min-w-0">
-                <div className="text-xl text-gray-400 font-handwriting mb-1">{link.label}</div>
-                <div className="text-white font-medium text-2xl font-heading tracking-wide group-hover:text-blue-300 transition-colors duration-200 truncate">
+                <div className="text-lg text-gray-400 font-handwriting mb-1">{link.label}</div>
+                <div className={`text-white font-medium text-xl font-heading tracking-wide group-hover:${link.hoverColor} transition-colors duration-150 truncate`}>
                   {link.value}
-                  <div className="h-px w-0 bg-blue-400/50 transition-all duration-200 ease-out group-hover:w-full"></div>
                 </div>
               </div>
             </motion.a>
@@ -136,7 +154,7 @@ export const ContactSection: React.FC = () => {
         </div>
         
         <motion.p
-          className="text-gray-400 text-center mt-16 mb-8 font-handwriting text-2xl"
+          className="text-gray-400 text-center mt-16 mb-8 font-handwriting text-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
@@ -152,7 +170,7 @@ export const ContactSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <h3 className="text-2xl font-heading text-center text-white mb-6">Have an idea? Let's discuss!</h3>
+          <h3 className="text-xl font-heading text-center text-white mb-6">Have an idea? Let's discuss!</h3>
           
           <div className="bg-black/30 backdrop-blur-md rounded-xl border border-white/10 p-6 md:p-8">
             {submitted ? (
@@ -167,14 +185,14 @@ export const ContactSection: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h4 className="text-2xl font-heading text-white mb-2">Message Sent!</h4>
-                <p className="text-gray-400 font-handwriting text-2xl">Thanks for reaching out. I'll get back to you soon!</p>
+                <h4 className="text-xl font-heading text-white mb-2">Message Sent!</h4>
+                <p className="text-gray-400 font-handwriting text-xl">Thanks for reaching out. I'll get back to you soon!</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} data-cursor="text">
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-lg font-handwriting text-gray-400 mb-2">Your Name</label>
+                    <label htmlFor="name" className="block text-base font-handwriting text-gray-400 mb-2">Your Name</label>
                     <input
                       type="text"
                       id="name"
@@ -183,12 +201,13 @@ export const ContactSection: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg font-heading text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg font-heading text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors cursor-none"
+                      data-cursor="text"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-lg font-handwriting text-gray-400 mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-base font-handwriting text-gray-400 mb-2">Email Address</label>
                     <input
                       type="email"
                       id="email"
@@ -197,12 +216,13 @@ export const ContactSection: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="your.email@example.com"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg font-heading text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg font-heading text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors cursor-none"
+                      data-cursor="text"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-lg font-handwriting text-gray-400 mb-2">Your Message</label>
+                    <label htmlFor="message" className="block text-base font-handwriting text-gray-400 mb-2">Your Message</label>
                     <textarea
                       id="message"
                       name="message"
@@ -211,7 +231,8 @@ export const ContactSection: React.FC = () => {
                       required
                       rows={4}
                       placeholder="Share your ideas, thoughts, or just say hello!"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg font-heading text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors resize-none"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg font-heading text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors resize-none cursor-none"
+                      data-cursor="text"
                     />
                   </div>
                   
@@ -224,9 +245,12 @@ export const ContactSection: React.FC = () => {
                         </svg>
                       </div>
                     ) : (
-                      <button
+                      <motion.button
                         type="submit"
-                        className="transform hover:scale-105 transition-transform duration-200 focus:outline-none m-0 p-0"
+                        className="transform hover:scale-105 transition-transform duration-200 focus:outline-none m-0 p-0 cursor-none"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        data-cursor="button"
                       >
                         <img 
                           src="/images/ui/sendButton.png" 
@@ -234,7 +258,7 @@ export const ContactSection: React.FC = () => {
                           className="h-12 object-contain"
                           style={{ display: 'block', margin: 0, padding: 0 }}
                         />
-                      </button>
+                      </motion.button>
                     )}
                   </div>
                 </div>

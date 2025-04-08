@@ -46,12 +46,12 @@ export const ProjectCard: React.FC<ProjectProps> = ({
         <div className="flex flex-col md:flex-row gap-4">
           {/* Content column - takes most of the space */}
           <div className="flex-grow flex flex-col">
-            <h3 className="text-2xl md:text-3xl font-bold font-heading mb-1 text-white">{title}</h3>
-            <p className="text-gray-400 text-lg mb-3 italic font-handwriting">{subtitle}</p>
+            <h3 className="text-xl md:text-2xl font-bold font-heading mb-1 text-white">{title}</h3>
+            <p className="text-gray-400 text-base mb-3 italic font-handwriting">{subtitle}</p>
             
             <div className="mb-4">
-              <h4 className="text-2xl font-semibold text-gray-400 mb-2 font-heading">Tech Stack:</h4>
-              <p className="text-gray-300 text-lg font-handwriting">{tech}</p>
+              <h4 className="text-xl font-semibold text-gray-400 mb-2 font-heading">Tech Stack:</h4>
+              <p className="text-gray-300 text-base font-handwriting">{tech}</p>
             </div>
           </div>
           
@@ -77,8 +77,8 @@ export const ProjectCard: React.FC<ProjectProps> = ({
               className="overflow-hidden"
             >
               <div className="mt-4 mb-6">
-                <h4 className="text-2xl font-semibold text-gray-400 mb-2 font-heading">Description:</h4>
-                <p className="text-gray-300 text-lg leading-relaxed font-handwriting">{description}</p>
+                <h4 className="text-xl font-semibold text-gray-400 mb-2 font-heading">Description:</h4>
+                <p className="text-gray-300 text-base leading-relaxed font-handwriting">{description}</p>
               </div>
               
               {links && (
@@ -88,7 +88,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
                       href={links.github} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors"
+                      className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors"
                     >
                       <Github size={16} />
                       <span>GitHub</span>
@@ -100,7 +100,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
                       href={links.demo} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-blue-900 text-blue-100 hover:bg-blue-800 transition-colors"
+                      className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-blue-900 text-blue-100 hover:bg-blue-800 transition-colors"
                     >
                       <ExternalLink size={16} />
                       <span>Demo</span>
@@ -113,7 +113,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
                       href={link.url} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-purple-900 text-purple-100 hover:bg-purple-800 transition-colors"
+                      className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-purple-900 text-purple-100 hover:bg-purple-800 transition-colors"
                     >
                       <ExternalLink size={16} />
                       <span>{link.label}</span>
@@ -127,7 +127,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
         
         <button 
           onClick={toggleExpand}
-          className="mt-4 flex items-center text-blue-400 hover:text-blue-300 text-lg font-handwriting transition-colors"
+          className="mt-4 flex items-center text-blue-400 hover:text-blue-300 text-base font-handwriting transition-colors"
         >
           {isExpanded ? (
             <>

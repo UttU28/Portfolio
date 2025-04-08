@@ -9,6 +9,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
 import { SmoothScroll } from './components/SmoothScroll';
+import { CustomCursor } from './components/CustomCursor';
 import LocomotiveScroll from 'locomotive-scroll';
 
 // Import our interface from types
@@ -88,7 +89,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen text-white relative overflow-x-hidden">
+    <div className="min-h-screen text-white relative overflow-x-hidden select-none">
+      {/* Custom Cursor */}
+      <CustomCursor />
+      
       {/* Static background image */}
       <Background />
 
@@ -132,7 +136,7 @@ function App() {
             </section>
             
             {/* Footer */}
-            <footer className="py-8 text-center text-gray-500 text-lg px-4 max-w-7xl mx-auto" data-scroll-section>
+            <footer className="py-8 pb-32 text-center text-gray-500 text-sm px-4 max-w-7xl mx-auto font-handwriting" data-scroll-section>
               <p>© {new Date().getFullYear()} Utsav Chaudhary. All rights reserved.</p>
             </footer>
           </main>

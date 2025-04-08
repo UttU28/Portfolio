@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SectionHeading } from './SectionHeading';
+import { motion } from 'framer-motion';
 
 // Skills component
 interface Skill {
@@ -72,6 +73,7 @@ export const SkillsSection: React.FC = () => {
   // Main state
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [hoveredSkill, setHoveredSkill] = useState<Skill | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   // Filter skills based on active category
   const filteredSkills = activeCategory === null 
@@ -95,8 +97,16 @@ export const SkillsSection: React.FC = () => {
     setActiveCategory(category);
   };
 
+  // Track mouse position for custom cursor effects
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePosition({
+      x: e.clientX,
+      y: e.clientY
+    });
+  };
+
   return (
-    <div id="skills" className="w-full">
+    <div id="skills" className="w-full" onMouseMove={handleMouseMove}>
       <SectionHeading 
         title="Skills" 
         description="I believe in choosing the right tool for the job (and I've collected quite a few tools in my toolkit). Explore my technical skills below:"
@@ -104,93 +114,121 @@ export const SkillsSection: React.FC = () => {
       
       {/* Category filters */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
-        <button
-          className={`px-3 py-1 rounded-full text-2xl font-handwriting hover:scale-105 transition-transform ${
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className={`px-3 py-1 rounded-full text-xl font-handwriting hover:scale-105 transition-transform ${
             activeCategory === null ? 'bg-white/20 text-white' : 'bg-white/10 text-gray-300'
-          } transition-colors`}
+          } transition-colors cursor-none`}
           onClick={() => handleCategoryChange(null)}
+          data-cursor="button"
         >
           All Skills
-        </button>
+        </motion.button>
         {categories.map(category => (
-          <button
+          <motion.button
             key={category}
-            className={`px-3 py-1 rounded-full text-2xl font-handwriting hover:scale-105 transition-transform ${
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`px-3 py-1 rounded-full text-xl font-handwriting hover:scale-105 transition-transform ${
               activeCategory === category ? 'bg-white/20 text-white' : 'bg-white/10 text-gray-300'
-            } transition-colors`}
+            } transition-colors cursor-none`}
             onClick={() => handleCategoryChange(category)}
+            data-cursor="button"
           >
             {category}
-          </button>
+          </motion.button>
         ))}
       </div>
       
       {/* Skills display */}
       <div className="p-6 mb-8 relative min-h-[400px] overflow-hidden">
         {/* Skills grid */}
-        <div className="flex flex-wrap justify-center gap-4 py-6">
+        <div className="flex flex-wrap justify-center gap-4 py-6 relative">
           {filteredSkills.map((skill, index) => {
             // Calculate sizes for visual variety
             const size = Math.floor((index % 3) + 1);
             const sizeClass = [
-              'text-2xl', 
-              'text-2xl', 
-              'text-2xl'
+              'text-xl', 
+              'text-xl', 
+              'text-xl'
             ][size - 1];
             
             return (
-              <div
+              <motion.div
                 key={`${skill.name}-${index}`}
-                className={`px-3 py-1 rounded-full font-handwriting ${skill.color} cursor-pointer backdrop-blur-sm shadow-lg hover:scale-110 hover:shadow-lg transition-all`}
+                className={`px-3 py-1 rounded-full font-handwriting ${skill.color} cursor-none backdrop-blur-sm shadow-lg transition-all`}
                 style={{
-                  boxShadow: hoveredSkill?.name === skill.name ? '0 0 20px rgba(255, 255, 255, 0.8)' : '0 4px 6px rgba(0, 0, 0, 0.1)'
+                  boxShadow: hoveredSkill?.name === skill.name ? '0 0 10px rgba(255, 255, 255, 0.5)' : '0 2px 4px rgba(0, 0, 0, 0.1)'
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: '0 0 15px rgba(255, 255, 255, 0.4)'
                 }}
                 onClick={() => handleCategoryChange(skill.category)}
                 onMouseEnter={() => setHoveredSkill(skill)}
                 onMouseLeave={() => setHoveredSkill(null)}
+                data-cursor="button"
               >
                 <span className={sizeClass}>{skill.name}</span>
-              </div>
+                
+                {/* Magnetic effect follows mouse when hovered */}
+                {hoveredSkill?.name === skill.name && (
+                  <motion.div 
+                    className="absolute top-0 left-0 w-full h-full rounded-full"
+                    style={{
+                      background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%)',
+                      pointerEvents: 'none',
+                      transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px)`,
+                    }}
+                  />
+                )}
+              </motion.div>
             );
           })}
         </div>
         
         {/* Hover info tooltip */}
         {hoveredSkill && (
-          <div 
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
             className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-lg rounded-lg p-4 text-white shadow-xl border border-white/10 max-w-xs"
           >
-            <p className="text-2xl font-bold font-handwriting">{hoveredSkill.name}</p>
-            <p className="text-lg font-handwriting mb-1">Category: {hoveredSkill.category}</p>
+            <p className="text-xl font-bold font-handwriting">{hoveredSkill.name}</p>
+            <p className="text-base font-handwriting mb-1">Category: {hoveredSkill.category}</p>
             
             {/* Projects used section */}
             <div className="mt-2">
-              <p className="text-lg font-semibold font-handwriting underline">Projects:</p>
+              <p className="text-base font-semibold font-handwriting underline">Projects:</p>
               {hoveredSkill.projectsUsed && hoveredSkill.projectsUsed.length > 0 ? (
-                <ul className="list-disc list-inside text-sm">
+                <ul className="list-disc list-inside text-xs">
                   {hoveredSkill.projectsUsed.map((project, idx) => (
                     <li key={idx} className="font-handwriting">{project}</li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm italic font-handwriting">No projects showcased yet</p>
+                <p className="text-xs italic font-handwriting">No projects showcased yet</p>
               )}
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
       
       {/* Category legend */}
       <div className="flex flex-wrap justify-center gap-4 mb-6">
         {Object.entries(categoryColors).map(([category, color]) => (
-          <div 
+          <motion.div 
             key={category} 
-            className="flex items-center hover:scale-110 transition-transform cursor-pointer"
+            className="flex items-center transition-transform cursor-pointer cursor-none"
+            whileHover={{ scale: 1.05 }}
             onClick={() => handleCategoryChange(category as string)}
+            data-cursor="button"
           >
             <div className={`w-3 h-3 rounded-full ${color} mr-2`}></div>
-            <span className="text-lg text-gray-300">{category}</span>
-          </div>
+            <span className="text-base text-gray-300">{category}</span>
+          </motion.div>
         ))}
       </div>
     </div>

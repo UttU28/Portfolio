@@ -73,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
               >
                 <img src="/images/logo/logo.png" alt="Logo" className="h-8 w-auto mr-2" />
                 <span 
-                  className="text-3xl font-bold text-white tracking-wide font-heading w-64 block" 
+                  className="text-2xl font-bold text-white tracking-wide font-heading w-64 block" 
                   style={{ textShadow: '1px 1px 2px rgba(255, 255, 255, 0.3)' }}
                 >
                   ThatInsaneGuy
@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
-                    className={`flex items-center space-x-1 px-3 py-2 rounded-md text-2xl cursor-pointer transition-all duration-100 ease-in-out font-bold
+                    className={`flex items-center space-x-1 px-3 py-2 rounded-md text-xl cursor-pointer transition-all duration-100 ease-in-out font-bold
                       ${hoveredItem === item.name ? 'font-hindi' : 'font-handwriting'} 
                       ${hoveredItem === item.name ? getNavItemHoverColor(item.name) : 'text-gray-300 hover:text-white'}`}
                     initial={{ opacity: 0, x: -20 }}
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
                   href="https://oldthatinsaneguy28.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-2xl cursor-pointer transition-all duration-100 ease-in-out font-bold
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-xl cursor-pointer transition-all duration-100 ease-in-out font-bold
                     ${hoveredItem === "Old Site" ? 'font-hindi' : 'font-handwriting'} 
                     ${hoveredItem === "Old Site" ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-300 hover:text-white'}`}
                   initial={{ opacity: 0, x: -20 }}

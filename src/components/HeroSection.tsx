@@ -15,7 +15,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
         transition={{ duration: 0.5 }}
       >
         <motion.h1 
-          className="text-5xl md:text-7xl font-bold font-heading mb-6 text-center md:text-left"
+          className="text-4xl md:text-6xl font-bold font-heading mb-6 text-center md:text-left"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           Utsav Chaudhary
         </motion.h1>
         <motion.p 
-          className="text-gray-300 text-2xl md:text-3xl font-handwriting mb-8 text-center md:text-left"
+          className="text-gray-300 text-xl md:text-2xl font-handwriting mb-8 text-center md:text-left"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -44,26 +44,40 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           transition={{ delay: 0.4, duration: 0.5 }}
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 rounded-lg font-handwriting text-2xl text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg"
+            className="px-8 py-3 rounded-lg font-handwriting text-xl text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg cursor-none overflow-hidden group"
             onClick={() => {
               console.log("Project button clicked");
               scrollToSection('projects');
             }}
+            data-cursor="button"
           >
-            View Projects
+            <span className="relative z-10">View Projects</span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity"
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              transition={{ duration: 0.3 }}
+            />
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 rounded-lg font-handwriting text-2xl text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg"
+            className="px-8 py-3 rounded-lg font-handwriting text-xl text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg cursor-none overflow-hidden group"
             onClick={() => {
               console.log("About button clicked");
               scrollToSection('about');
             }}
+            data-cursor="button"
           >
-            About Me
+            <span className="relative z-10">About Me</span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-yellow-500/20 opacity-0 group-hover:opacity-100 transition-opacity"
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              transition={{ duration: 0.3 }}
+            />
           </motion.button>
         </motion.div>
         <motion.div 
@@ -72,41 +86,69 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <a 
+          <motion.a 
             href="https://github.com/UttU28" 
             target="_blank"
             rel="noopener noreferrer"
+            className="cursor-none relative group"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            data-cursor="link"
           >
+            <motion.div 
+              className="absolute inset-0 bg-white/30 rounded-full filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            />
             <img 
               src="/images/social/gitHub.png" 
               alt="GitHub" 
-              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
+              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity relative"
+              style={{filter: "drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))"}}
             />
-          </a>
-          <a 
+          </motion.a>
+          <motion.a 
             href="https://linkedin.com/in/utsavmaan28" 
             target="_blank"
             rel="noopener noreferrer"
+            className="cursor-none relative group"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            data-cursor="link"
           >
+            <motion.div 
+              className="absolute inset-0 bg-blue-600/30 rounded-full filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            />
             <img 
               src="/images/social/linkedIn.png" 
               alt="LinkedIn" 
-              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
-              style={{filter: "drop-shadow(0 0 1px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 1px rgba(37, 99, 235, 0.8))"}}
+              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity relative"
+              style={{filter: "drop-shadow(0 0 6px rgba(59, 130, 246, 0.8))"}}
             />
-          </a>
-          <a 
+          </motion.a>
+          <motion.a 
             href="https://youtube.com/@utsavchaudhary" 
             target="_blank"
             rel="noopener noreferrer"
+            className="cursor-none relative group"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            data-cursor="link"
           >
+            <motion.div 
+              className="absolute inset-0 bg-red-500/30 rounded-full filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            />
             <img 
               src="/images/social/youTube.png" 
               alt="YouTube" 
-              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity"
-              style={{filter: "drop-shadow(0 0 1px rgba(239, 68, 68, 0.8)) drop-shadow(0 0 1px rgba(220, 38, 38, 0.8))"}}
+              className="w-10 h-10 object-contain hover:opacity-80 transition-opacity relative"
+              style={{filter: "drop-shadow(0 0 6px rgba(239, 68, 68, 0.8))"}}
             />
-          </a>
+          </motion.a>
         </motion.div>
       </motion.div>
       

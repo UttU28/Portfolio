@@ -61,7 +61,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         
         {/* Heading */}
         <motion.h2 
-          className={`text-4xl md:text-6xl font-bold font-heading text-center section-heading px-4 my-0 ${className}`}
+          className={`text-3xl md:text-5xl font-bold font-heading text-center section-heading px-4 my-0 ${className}`}
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? 
             { 
@@ -132,7 +132,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       
       {description && (
         <motion.p
-          className="text-gray-300 text-center max-w-3xl mx-auto mb-12 font-handwriting text-2xl"
+          className="text-gray-300 text-center max-w-3xl mx-auto mb-12 font-handwriting text-xl"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
