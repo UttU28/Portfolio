@@ -132,7 +132,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       
       {description && (
         <motion.p
-          className="text-gray-300 text-center max-w-3xl mx-auto mb-12 font-handwriting text-xl"
+          className="text-gray-300 text-center w-full mx-auto mb-12 font-handwriting text-xl"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}

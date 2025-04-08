@@ -23,6 +23,8 @@ export const SmoothScroll = forwardRef<LocomotiveScroll, SmoothScrollProps>(
           class: 'is-revealed',
           getDirection: true,
           getSpeed: true,
+          scrollFromAnywhere: true,
+          offset: ['0%', '0%'],
         });
 
         // Expose the instance through the ref

@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
           Utsav Chaudhary
         </motion.h1>
         <motion.p 
-          className="text-gray-300 text-xl md:text-2xl font-handwriting mb-8 text-center md:text-left"
+          className="text-gray-300 w-full text-xl md:text-2xl font-handwriting mb-8 text-center md:text-left"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -79,6 +79,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => 
               transition={{ duration: 0.3 }}
             />
           </motion.button>
+          <motion.a
+            href="https://oldthatinsaneguy28.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 rounded-lg font-handwriting text-xl text-white relative border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors shadow-lg cursor-none overflow-hidden group text-center w-full sm:w-auto"
+            data-cursor="link"
+          >
+            <span className="relative z-10">Old Site</span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity"
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.a>
         </motion.div>
         <motion.div 
           className="flex space-x-4 mt-8 justify-center md:justify-start"

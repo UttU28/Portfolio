@@ -20,25 +20,25 @@ export const AboutSection: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <p className="text-gray-300 mb-4 leading-relaxed font-handwriting text-xl">
+          <p className="text-gray-300 w-full mb-4 leading-relaxed font-handwriting text-xl">
             Hello! I'm Utsav, a software developer who loves turning wild ideas into real applications. 
             I have a strong passion for problem-solving and a knack for creating meaningful solutions with code.
           </p>
-          <p className="text-gray-300 mb-4 leading-relaxed font-handwriting text-xl">
+          <p className="text-gray-300 w-full mb-4 leading-relaxed font-handwriting text-xl">
             Whether it's building an AI-powered home assistant or coding an automation bot to simplify 
             everyday tasks, I thrive on projects that blend innovation with practicality. I approach each 
             new challenge with curiosity, creativity, and a healthy dose of humor – because coding should be fun, right?
           </p>
-          <p className="text-gray-300 mb-4 leading-relaxed font-handwriting text-xl">
+          <p className="text-gray-300 w-full mb-4 leading-relaxed font-handwriting text-xl">
             Over the years, I've worn many hats: front-end tinkerer, back-end architect, cloud orchestrator, 
             and even team lead. This journey has taught me how to tackle complex problems with determination and creativity.
           </p>
-          <p className="text-gray-300 mb-4 leading-relaxed font-handwriting text-xl">
+          <p className="text-gray-300 w-full mb-4 leading-relaxed font-handwriting text-xl">
             I'm the kind of person who sees a bug or an error as just another puzzle to solve 
             (often at 2 AM with a mug of coffee in hand). I take pride in collaborating with others 
             and driving projects forward with clarity and purpose.
           </p>
-          <p className="text-gray-300 leading-relaxed font-handwriting text-xl">
+          <p className="text-gray-300 w-full leading-relaxed font-handwriting text-xl">
             In short, I love making tech do things it wasn't originally supposed to do (in a good way), 
             and I'm always excited to learn whatever new tool or language it takes to get the job done.
           </p>

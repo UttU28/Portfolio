@@ -3,6 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ProjectProps } from './ProjectCard';
 import { ChevronDown, ChevronUp, Github as GithubIcon, ExternalLink as ExternalLinkIcon } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
+import LocomotiveScroll from 'locomotive-scroll';
+
+declare global {
+  interface Window {
+    locomotiveScroll?: LocomotiveScroll;
+  }
+}
 
 export const ProjectsSection: React.FC = () => {
   const [expandedProjects, setExpandedProjects] = useState<{ [key: string]: boolean }>({});
@@ -53,9 +60,40 @@ export const ProjectsSection: React.FC = () => {
       // Completely prevent default on wheel events to avoid interference
       e.preventDefault();
       
-      // If we're at the edges, don't modify the scroll
-      if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+      // If we're at the top and scrolling up, let the main page handle it
+      if (isAtTop && e.deltaY < 0) {
         return;
+      }
+      
+      // Track overflow scrolling at bottom
+      if (isAtBottom && e.deltaY > 0) {
+        // Initialize or increment the overflow scroll counter
+        const currentOverflow = parseInt(container.dataset.overflowScroll || '0');
+        const newOverflow = currentOverflow + Math.abs(e.deltaY);
+        container.dataset.overflowScroll = newOverflow.toString();
+        
+        // If we've scrolled enough past the bottom, scroll to next section
+        if (newOverflow > 100) {
+          // Reset the counter
+          container.dataset.overflowScroll = '0';
+          
+          // Find the skills section (next section after projects) and scroll to it
+          const skillsSection = document.getElementById('skills');
+          if (skillsSection && window.locomotiveScroll) {
+            window.locomotiveScroll.scrollTo(skillsSection, {
+              offset: -80,
+              duration: 1000,
+              easing: [0.25, 0.1, 0.25, 1],
+            });
+          }
+          return;
+        }
+        
+        // Still return early to prevent further processing
+        return;
+      } else {
+        // Reset overflow counter when not at bottom
+        container.dataset.overflowScroll = '0';
       }
       
       // Cancel any existing animation
@@ -103,9 +141,40 @@ export const ProjectsSection: React.FC = () => {
       const isAtTop = scrollTop <= 0;
       const isAtBottom = scrollTop + clientHeight >= scrollHeight;
       
-      // If scrolling up at the top or down at the bottom, allow propagation
-      if ((isAtTop && deltaY < 0) || (isAtBottom && deltaY > 0)) {
+      // If scrolling up at the top, allow propagation
+      if (isAtTop && deltaY < 0) {
         return;
+      }
+      
+      // Track overflow scrolling at bottom for touch events
+      if (isAtBottom && deltaY > 0) {
+        // Initialize or increment the overflow scroll counter
+        const currentOverflow = parseInt(container.dataset.overflowTouchScroll || '0');
+        const newOverflow = currentOverflow + Math.abs(deltaY);
+        container.dataset.overflowTouchScroll = newOverflow.toString();
+        
+        // If we've scrolled enough past the bottom, scroll to next section
+        if (newOverflow > 100) {
+          // Reset the counter
+          container.dataset.overflowTouchScroll = '0';
+          
+          // Find the skills section (next section after projects) and scroll to it
+          const skillsSection = document.getElementById('skills');
+          if (skillsSection && window.locomotiveScroll) {
+            window.locomotiveScroll.scrollTo(skillsSection, {
+              offset: -80,
+              duration: 1000,
+              easing: [0.25, 0.1, 0.25, 1],
+            });
+          }
+          return;
+        }
+        
+        // Still return early to prevent further processing
+        return;
+      } else {
+        // Reset overflow counter when not at bottom
+        container.dataset.overflowTouchScroll = '0';
       }
       
       // Directly set scroll position for touch (feels more natural)
@@ -247,7 +316,7 @@ export const ProjectsSection: React.FC = () => {
       <SectionHeading>Projects</SectionHeading>
       
       <motion.p
-        className="text-gray-300 text-center max-w-3xl mx-auto mb-12 font-handwriting text-xl"
+        className="text-gray-300 text-center w-full mx-auto mb-12 font-handwriting text-xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
@@ -258,7 +327,7 @@ export const ProjectsSection: React.FC = () => {
       
       <div 
         ref={projectsContainerRef}
-        className="max-w-6xl mx-auto overflow-y-auto px-4 pb-8 relative" 
+        className="max-w-6xl mx-auto overflow-y-auto px-8 pt-8 pb-8 relative" 
         style={{ 
           maxHeight: "calc(100vh - 150px)",
           overscrollBehavior: "contain",
@@ -281,8 +350,11 @@ export const ProjectsSection: React.FC = () => {
               transition={{ duration: 0.6 }}
             >
               <motion.div 
-                className="bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-blue-500/50 transition-all duration-300 cursor-none" 
-                style={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)' }}
+                className="bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 overflow-visible hover:border-blue-500/50 transition-all duration-300 cursor-none group" 
+                style={{ 
+                  boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)',
+                  position: 'relative'
+                }}
                 whileHover={{ 
                   boxShadow: '0 0 30px rgba(65, 105, 225, 0.3)',
                   scale: 1.02

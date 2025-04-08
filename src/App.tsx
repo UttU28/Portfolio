@@ -102,8 +102,11 @@ function App() {
         <MobileTabBar navItems={navItems} gridStyle={mobileNavStyle} scrollToSection={scrollToSection} />
 
         {/* Main content with full-height sections */}
-        <SmoothScroll ref={locomotiveScrollRef}>
-          <main className="relative z-10 h-full pb-16 md:pb-0">
+        <SmoothScroll ref={locomotiveScrollRef} onLocomotiveScroll={(scroll) => {
+          // Make the scroll instance available globally
+          window.locomotiveScroll = scroll;
+        }}>
+          <main className="relative z-10 h-full pb-16 md:pb-0 pt-16">
             {/* Hero section */}
             <section ref={homeRef} id="home" className="px-4 max-w-7xl mx-auto" data-scroll-section>
               <HeroSection scrollToSection={scrollToSection} />

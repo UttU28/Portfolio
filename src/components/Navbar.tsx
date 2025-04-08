@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
         initial={{ y: -100 }}
         animate={{ y: 0}}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        className="fixed top-0 left-0 right-0 z-50 relative"
+        className="fixed top-0 left-0 right-0 z-50"
         style={{
           backdropFilter: 'blur(15px)',
           WebkitBackdropFilter: 'blur(15px)',
@@ -116,32 +116,6 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems, scrollToSection }) => 
                     </span>
                   </motion.a>
                 ))}
-                
-                {/* Old Site Button */}
-                <motion.a
-                  href="https://oldthatinsaneguy28.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-xl cursor-pointer transition-all duration-100 ease-in-out font-bold
-                    ${hoveredItem === "Old Site" ? 'font-hindi' : 'font-handwriting'} 
-                    ${hoveredItem === "Old Site" ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-300 hover:text-white'}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * navItems.length }}
-                  onMouseEnter={() => setHoveredItem("Old Site")}
-                  onMouseLeave={() => setHoveredItem(null)}
-                >
-                  <span className={`block text-center transition-all duration-300 ease-in-out w-24`}>
-                    <span 
-                      style={{ 
-                        display: 'inline-block', 
-                        paddingTop: hoveredItem === "Old Site" ? '4px' : '0' 
-                      }}
-                    >
-                      {hoveredItem === "Old Site" ? hindiTranslations["Old Site"] : "Old Site"}
-                    </span>
-                  </span>
-                </motion.a>
               </motion.div>
             </div>
           </div>
