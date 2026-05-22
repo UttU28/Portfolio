@@ -48,7 +48,7 @@ function NavButton({ item }: { item: NavItem }) {
           {item.hindi}
         </motion.span>
       ) : (
-        <span className="nav-button__label tracking-tight">{item.label}</span>
+        <span className="nav-button__label">{item.label}</span>
       )}
     </motion.a>
   );

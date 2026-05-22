@@ -9,12 +9,29 @@ type CardTabsProps = {
   accentColor?: string;
 };
 
+function accentGlowFor(color: string): string {
+  const key = color.toUpperCase();
+  if (key === "#FFE700") return "var(--yellow-border)";
+  if (key === "#74EE15") return "var(--green-border)";
+  if (key === "#F000FF") return "var(--pink-border)";
+  if (key === "#001EFF") return "var(--dblue-border)";
+  return "var(--blue-border)";
+}
+
 export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
   const [active, setActive] = useState(0);
   const entry = entries[active];
 
+  const accentStyle = {
+    "--card-accent": accentColor,
+    "--card-glow": accentGlowFor(accentColor),
+  } as React.CSSProperties;
+
   return (
-    <div className="card-tabs flex flex-col md:flex-row gap-4">
+    <div
+      className="card-tabs flex flex-col md:flex-row gap-4"
+      style={accentStyle}
+    >
       <div className="flex md:flex-col gap-2 md:min-w-[64px] overflow-x-auto md:overflow-visible">
         {entries.map((item, i) => {
           const isActive = i === active;

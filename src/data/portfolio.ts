@@ -25,7 +25,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "About",
     href: "#about",
-    label: "00.About",
+    label: "About",
     hindi: "मैं",
     color: "#4DEEEA",
     shadowVar: "var(--blue-text-shadow)",
@@ -34,7 +34,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "Projects",
     href: "#projects",
-    label: "01.Projects",
+    label: "Projects",
     hindi: "काम",
     color: "#74EE15",
     shadowVar: "var(--green-text-shadow)",
@@ -43,7 +43,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "Experience",
     href: "#experience",
-    label: "02.Experience",
+    label: "Experience",
     hindi: "अनुभव",
     color: "#FFE700",
     shadowVar: "var(--yellow-text-shadow)",
@@ -52,7 +52,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "YouTube",
     href: "#youtube",
-    label: "03.YouTube",
+    label: "YouTube",
     hindi: "यूट्यूब",
     color: "#F000FF",
     shadowVar: "var(--pink-text-shadow)",
@@ -61,7 +61,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "Resume",
     href: "/Utsav_Chaudhary_Resume.pdf",
-    label: "04.Resume",
+    label: "Resume",
     hindi: "सी.वी",
     color: "#001EFF",
     shadowVar: "var(--dblue-text-shadow)",

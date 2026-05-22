@@ -29,6 +29,16 @@
   /* Push main column left (clear social icons); not centered */
   --portfolio-content-offset: clamp(3.5rem, 8vw, 9rem);
   --portfolio-content-max: 52rem;
+
+  /* Tag name colors — match nav item border accents (portfolio.ts) */
+  --tag-about: #4deeea;
+  --tag-projects: #74ee15;
+  --tag-experience: #ffe700;
+  --tag-youtube: #f000ff;
+  --tag-menu: #1fffff;
+  --tag-introduction: #1fffff;
+  --tag-social: #4deeea;
+  --tag-accent-opacity: 70%;
 }
 
 /* Base tag */
@@ -136,30 +146,30 @@
   font-size: var(--code-tag-size-default);
 }
 
-/* Optional accent per semantic tag (tweak in one place) */
+/* Semantic tag names — nav accent colors at 75% opacity */
 .code-tag--introduction .code-tag__name {
-  color: #e8ffff;
+  color: color-mix(in srgb, var(--tag-introduction) var(--tag-accent-opacity), transparent);
 }
 .code-tag--menu .code-tag__name {
-  color: #c8ffff;
+  color: color-mix(in srgb, var(--tag-menu) var(--tag-accent-opacity), transparent);
 }
 .code-tag--social .code-tag__name {
-  color: #ffe8e8;
+  color: color-mix(in srgb, var(--tag-social) var(--tag-accent-opacity), transparent);
 }
 .code-tag--title .code-tag__name {
   color: #ffffff;
 }
 .code-tag--about .code-tag__name {
-  color: #d4ffff;
+  color: color-mix(in srgb, var(--tag-about) var(--tag-accent-opacity), transparent);
 }
 .code-tag--projects .code-tag__name {
-  color: #d8ffcc;
+  color: color-mix(in srgb, var(--tag-projects) var(--tag-accent-opacity), transparent);
 }
 .code-tag--experience .code-tag__name {
-  color: #fff9c4;
+  color: color-mix(in srgb, var(--tag-experience) var(--tag-accent-opacity), transparent);
 }
 .code-tag--youtube .code-tag__name {
-  color: #ffd4ff;
+  color: color-mix(in srgb, var(--tag-youtube) var(--tag-accent-opacity), transparent);
 }
 
 /* Pair layout: opening above, closing below (section blocks) */
