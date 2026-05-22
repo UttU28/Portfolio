@@ -1,0 +1,177 @@
+/**
+ * Vinyl player — neon / code-editor theme (matches portfolio palette).
+ */
+
+.disc-player__stage {
+  --disc-accent: var(--neon-cyan, #1fffff);
+  --disc-accent-alt: var(--neon-pink, #ea00ff);
+  --disc-vinyl: #08080c;
+  --disc-groove: rgba(31, 255, 255, 0.14);
+  --disc-groove-faint: rgba(31, 255, 255, 0.06);
+}
+
+.disc-player__platter {
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.75) 72%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(31, 255, 255, 0.12),
+    0 8px 28px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+}
+
+.disc-player__disc-btn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.disc-player__disc-btn:focus-visible {
+  outline: 2px solid var(--disc-accent);
+  outline-offset: 4px;
+}
+
+.disc-player__disc-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 14px rgba(31, 255, 255, 0.35))
+    drop-shadow(0 0 28px rgba(234, 0, 255, 0.12));
+}
+
+.disc-player__disc-svg .disc-player__rim {
+  fill: var(--disc-vinyl);
+  stroke: var(--disc-accent);
+  stroke-width: 1.5;
+}
+
+.disc-player__disc-svg .disc-player__groove {
+  fill: none;
+  stroke: var(--disc-groove-faint);
+  stroke-width: 0.75;
+}
+
+.disc-player__disc-svg .disc-player__groove--bright {
+  stroke: var(--disc-groove);
+  stroke-width: 0.5;
+}
+
+.disc-player__disc-svg .disc-player__sheen {
+  pointer-events: none;
+}
+
+.disc-player__disc-svg .disc-player__label-ring {
+  fill: none;
+  stroke: var(--disc-accent);
+  stroke-width: 0.85;
+  opacity: 0.55;
+}
+
+.disc-player__disc-svg .disc-player__hub {
+  stroke: var(--disc-accent-alt);
+  stroke-width: 0.6;
+  opacity: 0.9;
+}
+
+.disc-player__disc-svg .disc-player__label-img {
+  pointer-events: none;
+}
+
+.disc-player__disc-svg .disc-player__hint {
+  fill: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-hand, "Patrick Hand", cursive);
+  font-size: 18px;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(31, 255, 255, 0.55));
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.disc-player__disc-svg .disc-player__hint--hidden {
+  opacity: 0;
+}
+
+.disc-player__tonearm {
+  position: absolute;
+  top: -4%;
+  right: -10%;
+  width: 58%;
+  height: 62%;
+  z-index: 12;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.disc-player__tonearm-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 6px rgba(31, 255, 255, 0.4));
+}
+
+.disc-player__tonearm-svg .disc-player__pivot {
+  fill: #0a0a0f;
+  stroke: var(--disc-accent);
+  stroke-width: 1.25;
+}
+
+.disc-player__tonearm-svg .disc-player__pivot-cap {
+  fill: var(--disc-accent);
+  opacity: 0.85;
+}
+
+.disc-player__tonearm-svg .disc-player__arm {
+  stroke: rgba(31, 255, 255, 0.45);
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+}
+
+.disc-player__tonearm-svg .disc-player__headshell {
+  fill: #121218;
+  stroke: var(--disc-accent);
+  stroke-width: 0.85;
+}
+
+.disc-player__tonearm-svg .disc-player__stylus,
+.disc-player__tonearm-svg .disc-player__stylus-glow {
+  transition: fill 0.45s ease;
+}
+
+.disc-player__tonearm-svg .disc-player__stylus {
+  fill: var(--disc-stylus, var(--disc-accent));
+}
+
+.disc-player__tonearm-svg .disc-player__stylus-glow {
+  fill: var(--disc-stylus, var(--disc-accent));
+  opacity: 0.35;
+}
+
+.disc-player--playing .disc-player__disc-svg {
+  filter: drop-shadow(0 0 18px rgba(31, 255, 255, 0.5))
+    drop-shadow(0 0 32px rgba(234, 0, 255, 0.2));
+}
+
+.disc-player--playing .disc-player__rim {
+  stroke-width: 2;
+}
+
+.disc-player--playing .disc-player__stylus,
+.disc-player--playing .disc-player__stylus-glow {
+  fill: var(--disc-stylus, #fffb00);
+}

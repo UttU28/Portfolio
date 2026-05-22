@@ -10,6 +10,17 @@ import greWordsPreview from "@/assets/projects/gre-words.jpg";
 import popularityChartPreview from "@/assets/projects/popularity-chart.jpg";
 import eduArPreview from "@/assets/projects/edu-ar.jpg";
 
+/** Fixed vinyl player — Soft Sunset Grooves (Pixabay, DPStudioMusic) */
+export const DISC_PLAYER = {
+  audioFile: "/music/soft-sunset-grooves.mp3",
+  discImage: popularityChartPreview,
+  accentColor: "#1fffff",
+  /** Stylus glow when parked (off disc) */
+  needleDotColor: "#ea00ff",
+  /** Stylus glow while playing — site neon yellow */
+  stylusPlayingColor: "#fffb00",
+};
+
 export type NavItem = {
   id: string;
   href: string;

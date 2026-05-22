@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&family=Roboto:wght@100;400;700;900&family=Sedgwick+Ave+Display&family=Yatra+One&display=swap');
 @import "./styles/code-tags.css";
-@import "./styles/scroll-widget.css";
+@import "./styles/disc-player.css";
+@import "./styles/disc-widget.css";
 @import "./styles/social-nav.css";
 @import "./styles/mobile-drawer.css";
 
