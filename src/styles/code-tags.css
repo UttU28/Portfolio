@@ -24,10 +24,15 @@
   --code-tag-size-content: clamp(1.35rem, 2.4vw, 2.1rem);
 
   /* Editor-style indent per "tab" (adjust once for all nested blocks) */
-  --code-indent-step: clamp(1.5rem, 4vw, 2.5rem);
+  --code-indent-step: clamp(0.85rem, 3.5vw, 2.5rem);
 
-  /* Push main column left (clear social icons); not centered */
-  --portfolio-content-offset: clamp(3.5rem, 8vw, 9rem);
+  /*
+   * Push main column left (clear social icons); not centered.
+   * On mobile we drop the offset to a small page gutter because the social
+   * nav is collapsed into the hamburger drawer — content should use the
+   * full screen width.
+   */
+  --portfolio-content-offset: 0.75rem;
   --portfolio-content-max: 52rem;
 
   /* Tag name colors — match nav item border accents (portfolio.ts) */
@@ -201,23 +206,40 @@
 .code-section--nested {
   position: relative;
   width: 100%;
-  max-width: var(--portfolio-content-max);
   margin-left: var(--portfolio-content-offset);
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1.5rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  scroll-margin-top: 5.5rem;
+  /* Mobile: content gets the full width, with only a small page gutter. */
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  scroll-margin-top: 4.5rem;
   text-align: left;
+  max-width: calc(100vw - var(--portfolio-content-offset) - 0.5rem);
 }
 
+@media (min-width: 480px) {
+  .code-section--nested {
+    padding-left: 0.85rem;
+    padding-right: 1.25rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Tablet+ — restore the editor-style left margin and inner max-width. */
 @media (min-width: 768px) {
+  :root {
+    --portfolio-content-offset: clamp(3.25rem, 8vw, 9rem);
+  }
+
   .code-section--nested {
     padding-left: 1.25rem;
     padding-right: 2rem;
     padding-top: 7rem;
     padding-bottom: 7rem;
+    scroll-margin-top: 6rem;
+    max-width: var(--portfolio-content-max);
   }
 }
 

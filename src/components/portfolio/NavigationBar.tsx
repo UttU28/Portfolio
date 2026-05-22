@@ -56,7 +56,7 @@ function NavButton({ item }: { item: NavItem }) {
 
 export function NavigationBar() {
   return (
-    <header className="fixed top-0 left-0 w-full z-40 pointer-events-none">
+    <header className="fixed top-0 left-0 w-full z-40 pointer-events-none hidden md:block">
       <div className="flex flex-col items-end gap-2 px-6 pt-5 lg:pt-7 lg:pr-12">
         <div className="inline-flex flex-col items-stretch gap-2">
           <motion.nav
@@ -65,7 +65,7 @@ export function NavigationBar() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="pointer-events-auto flex flex-wrap items-center justify-end gap-2 md:gap-3"
           >
-            <ul className="flex flex-wrap items-center gap-2 md:gap-3">
+            <ul className="flex flex-wrap items-center justify-end gap-2 md:gap-3">
               {NAV_ITEMS.map((item) => (
                 <li key={item.id}>
                   <NavButton item={item} />
@@ -73,7 +73,7 @@ export function NavigationBar() {
               ))}
             </ul>
           </motion.nav>
-          <div className="hidden md:flex justify-between items-end pointer-events-none">
+          <div className="flex justify-between items-end pointer-events-none">
             <CodeTag
               tag={CODE_TAGS.menu}
               placement="nav"

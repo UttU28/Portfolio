@@ -14,7 +14,7 @@ function accentGlowFor(color: string): string {
   if (key === "#FFE700") return "var(--yellow-border)";
   if (key === "#74EE15") return "var(--green-border)";
   if (key === "#F000FF") return "var(--pink-border)";
-  if (key === "#001EFF") return "var(--dblue-border)";
+  if (key === "#FF7700") return "var(--orange-border)";
   return "var(--blue-border)";
 }
 
@@ -66,7 +66,7 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
       </nav>
 
       <article
-        className="card-tabs__panel neon-panel p-5 md:p-6"
+        className="card-tabs__panel neon-panel p-3 sm:p-4 md:p-6"
         style={{ borderColor: accentColor }}
       >
         <AnimatePresence mode="wait">
@@ -76,14 +76,14 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="card-tabs__detail flex flex-col gap-[1.25rem]"
+            className="card-tabs__detail flex flex-col gap-3 sm:gap-4 md:gap-[1.25rem]"
           >
             <header className="card-tabs__header">
-              <h3 className="portfolio-heading text-left text-2xl md:text-3xl">
+              <h3 className="portfolio-heading text-left text-xl sm:text-2xl md:text-3xl break-words">
                 {entry.title}
               </h3>
               <div
-                className="card-tabs__meta font-hand text-sm md:text-base tracking-wide text-left py-2 border-y"
+                className="card-tabs__meta font-hand text-xs sm:text-sm md:text-base tracking-wide text-left py-2 border-y break-words"
                 style={{ borderColor: accentColor, color: accentColor }}
               >
                 {entry.meta}
