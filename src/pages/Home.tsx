@@ -4,7 +4,7 @@ import { Logo } from "@/components/portfolio/Logo";
 import { NavigationBar } from "@/components/portfolio/NavigationBar";
 import { MobileMenu } from "@/components/portfolio/MobileMenu";
 import { SocialNav } from "@/components/portfolio/SocialNav";
-import { ScrollIndicator } from "@/components/portfolio/ScrollIndicator";
+import { FixedDiscPlayer } from "@/components/portfolio/FixedDiscPlayer";
 import { HudEffects } from "@/components/portfolio/HudEffects";
 import { HomeSection } from "@/components/portfolio/sections/HomeSection";
 import { AboutSection } from "@/components/portfolio/sections/AboutSection";
@@ -25,7 +25,7 @@ export default function Home() {
       <NavigationBar />
       <MobileMenu />
       <SocialNav />
-      <ScrollIndicator />
+      <FixedDiscPlayer />
       <HudEffects />
 
       <div className="portfolio-page pt-20 sm:pt-24 md:pt-40 pb-24 sm:pb-28 md:pb-32 space-y-4">
