@@ -1,0 +1,119 @@
+/* Left social column — matches deploy socialnav.css hover labels */
+
+.social-nav {
+  --social-nav-left: 1.75rem;
+  --social-nav-row-indent: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .social-nav {
+    --social-nav-left: 1.5rem;
+    --social-nav-row-indent: 1rem;
+  }
+}
+
+.social-nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-nav__item {
+  display: flex;
+  align-items: center;
+  width: 12.5rem;
+  max-width: min(12.5rem, 42vw);
+  margin-left: var(--social-nav-row-indent);
+}
+
+.social-nav__block {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.social-nav__text {
+  display: flex;
+  align-items: center;
+  padding-left: 0.65rem;
+  padding-top: 0.2rem;
+  font-family: var(--font-code);
+  font-size: clamp(1.35rem, 3.2vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  text-shadow: var(--red-text-shadow);
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(10px);
+  transform: translateX(-14px) scale(0.88);
+  letter-spacing: 0.06em;
+  transform-origin: left center;
+  will-change: opacity, filter, transform;
+  transition:
+    visibility 0s linear 0.55s,
+    opacity 0.5s ease-in,
+    filter 0.55s ease-in,
+    transform 0.55s cubic-bezier(0.55, 0, 1, 0.45),
+    letter-spacing 0.5s ease-in;
+}
+
+.social-nav__block:hover + .social-nav__text,
+.social-nav__block:focus-within + .social-nav__text {
+  visibility: visible;
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0) scale(1);
+  letter-spacing: 0;
+  animation: social-label-dissolve-in 0.75s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+  transition:
+    visibility 0s,
+    opacity 0.4s cubic-bezier(0.34, 1.45, 0.64, 1),
+    filter 0.55s ease-out,
+    transform 0.7s cubic-bezier(0.34, 1.45, 0.64, 1),
+    letter-spacing 0.65s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+@keyframes social-label-dissolve-in {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateX(-18px) scale(0.82);
+    letter-spacing: 0.14em;
+  }
+  45% {
+    opacity: 0.75;
+    filter: blur(4px);
+    transform: translateX(4px) scale(1.05);
+  }
+  72% {
+    opacity: 0.95;
+    filter: blur(1px);
+    transform: translateX(-2px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0) scale(1);
+    letter-spacing: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-nav__text {
+    filter: none;
+    transform: none;
+    transition: visibility 0s linear 0.2s, opacity 0.2s ease;
+  }
+
+  .social-nav__block:hover + .social-nav__text,
+  .social-nav__block:focus-within + .social-nav__text {
+    animation: none;
+    transition: visibility 0s, opacity 0.2s ease;
+  }
+}

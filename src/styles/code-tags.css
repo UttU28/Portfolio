@@ -1,0 +1,251 @@
+/**
+ * Pseudo-HTML code tags — single file to style every <tag> / </tag> label.
+ * Edit sizes, colors, glow, and placement here; all tags update site-wide.
+ */
+
+:root {
+  /* Tag typography */
+  --code-tag-font: var(--font-code);
+  --code-tag-color: #ffffff;
+  --code-tag-slash: #ff0000;
+  --code-tag-slash-font: "slashFont", "Permanent Marker", cursive;
+  --code-tag-bracket: rgba(255, 255, 255, 0.75);
+  --code-tag-name: #ffffff;
+  --code-tag-glow: 0 0 12px rgba(31, 255, 255, 0.45),
+    0 0 24px rgba(0, 208, 255, 0.2);
+  --code-tag-opacity: 0.92;
+  --code-tag-opacity-hover: 1;
+
+  /* Sizes (mobile → desktop) */
+  --code-tag-size-default: clamp(1.35rem, 2.6vw, 2.1rem);
+  --code-tag-size-nav: clamp(1.2rem, 2.2vw, 1.85rem);
+  --code-tag-size-sidebar: clamp(1.35rem, 2.4vw, 2rem);
+  --code-tag-size-section: clamp(1.5rem, 2.8vw, 2.35rem);
+  --code-tag-size-content: clamp(1.35rem, 2.4vw, 2.1rem);
+
+  /* Editor-style indent per "tab" (adjust once for all nested blocks) */
+  --code-indent-step: clamp(1.5rem, 4vw, 2.5rem);
+
+  /* Push main column left (clear social icons); not centered */
+  --portfolio-content-offset: clamp(3.5rem, 8vw, 9rem);
+  --portfolio-content-max: 52rem;
+}
+
+/* Base tag */
+.code-tag {
+  font-family: var(--code-tag-font);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  user-select: none;
+  white-space: nowrap;
+  color: var(--code-tag-color);
+  opacity: var(--code-tag-opacity);
+  text-shadow: var(--code-tag-glow);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.code-tag:hover {
+  opacity: var(--code-tag-opacity-hover);
+}
+
+.code-tag__bracket {
+  color: var(--code-tag-bracket);
+  font-weight: 400;
+}
+
+/* Closing-tag slash — uses slashFont (codeFont often hides "/") */
+.code-tag__slash {
+  font-family: var(--code-tag-slash-font);
+  color: var(--code-tag-slash) !important;
+  font-weight: 700;
+  font-size: 0.78em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+  /* Red glow only — overrides parent cyan text-shadow visually */
+  text-shadow:
+    0 0 6px #ff0000,
+    0 0 14px rgba(255, 0, 0, 0.85),
+    0 0 22px rgba(255, 80, 80, 0.5);
+}
+
+/* Closing tags: nudge "/" left (closer to "<") and away from tag name */
+.code-tag--closing {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+}
+
+.code-tag--closing .code-tag__bracket:first-of-type {
+  margin-right: 0.06em;
+}
+
+.code-tag--closing .code-tag__slash {
+  color: #ff2222 !important;
+  margin-left: -0.06em;
+  margin-right: 0.14em;
+  transform: translateX(-0.14em);
+  text-shadow:
+    0 0 8px #ff0000,
+    0 0 18px rgba(255, 0, 0, 0.9),
+    0 0 28px rgba(255, 50, 50, 0.55);
+}
+
+.code-tag--closing .code-tag__name {
+  margin-left: 0.04em;
+}
+
+.code-tag__name {
+  color: var(--code-tag-name);
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+/* Placement: default section chrome (top / bottom of each scroll section) */
+.code-tag--section {
+  font-size: var(--code-tag-size-section);
+}
+
+/* All portfolio sections: closing tags left-aligned at same indent as opening */
+.code-section--nested .code-tag--closing {
+  align-self: flex-start;
+}
+
+/* Top nav area */
+.code-tag--nav {
+  font-size: var(--code-tag-size-nav);
+  opacity: 0.95;
+}
+
+/* Left social column */
+.code-tag--sidebar {
+  font-size: var(--code-tag-size-sidebar);
+  opacity: 0.95;
+}
+
+/* Inner block labels (about, projects, youtube body, etc.) */
+.code-tag--content {
+  font-size: var(--code-tag-size-content);
+  margin-bottom: 0.5rem;
+}
+
+/* Default fallback */
+.code-tag--default {
+  font-size: var(--code-tag-size-default);
+}
+
+/* Optional accent per semantic tag (tweak in one place) */
+.code-tag--introduction .code-tag__name {
+  color: #e8ffff;
+}
+.code-tag--menu .code-tag__name {
+  color: #c8ffff;
+}
+.code-tag--social .code-tag__name {
+  color: #ffe8e8;
+}
+.code-tag--title .code-tag__name {
+  color: #ffffff;
+}
+.code-tag--about .code-tag__name {
+  color: #d4ffff;
+}
+.code-tag--projects .code-tag__name {
+  color: #d8ffcc;
+}
+.code-tag--experience .code-tag__name {
+  color: #fff9c4;
+}
+.code-tag--youtube .code-tag__name {
+  color: #ffd4ff;
+}
+
+/* Pair layout: opening above, closing below (section blocks) */
+.code-tag-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.code-tag-group--row-end {
+  align-items: flex-end;
+  margin-top: 0.75rem;
+}
+
+.code-tag-group--row-start {
+  align-items: flex-start;
+}
+
+/* ── Nested code layout (e.g. <title> → <about> → content) ── */
+
+/* Page column — left-aligned like the original HTML portfolio */
+.portfolio-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.code-section--nested {
+  position: relative;
+  width: 100%;
+  max-width: var(--portfolio-content-max);
+  margin-left: var(--portfolio-content-offset);
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  scroll-margin-top: 5.5rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .code-section--nested {
+    padding-left: 1.25rem;
+    padding-right: 2rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --portfolio-content-offset: clamp(5rem, 12vw, 11rem);
+  }
+}
+
+.code-nest {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0.65rem;
+}
+
+.code-nest--root {
+  padding-left: 0;
+}
+
+/* One tab in from parent */
+.code-nest--level-1 {
+  padding-left: var(--code-indent-step);
+  width: 100%;
+}
+
+/* Two tabs in from <title> */
+.code-nest--level-2 {
+  padding-left: var(--code-indent-step);
+  width: 100%;
+}
+
+.code-nest__heading {
+  margin-bottom: 0.25rem;
+}
+
+.code-nest__body {
+  width: 100%;
+  max-width: 42rem;
+}
