@@ -14,6 +14,8 @@ type NestedSectionProps = {
   header?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
+  /** Wider content area for tabbed cards (projects, experience). */
+  wideCards?: boolean;
 };
 
 /**
@@ -33,6 +35,7 @@ export function NestedSection({
   header,
   children,
   className,
+  wideCards = false,
 }: NestedSectionProps) {
   return (
     <motion.section
@@ -41,7 +44,11 @@ export function NestedSection({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className={cn("code-section code-section--nested", className)}
+      className={cn(
+        "code-section code-section--nested",
+        wideCards && "code-section--wide-cards",
+        className,
+      )}
     >
       <CodeTag tag={sectionTag} placement="section" className="mb-2" />
 

@@ -216,22 +216,46 @@
     text-shadow: var(--blue-text-shadow);
   }
 
-  /* Navigation button - cyan neon by default, recolored per item on hover */
+  /* Navigation button — fixed size so English/Hindi hover does not resize tabs */
   .nav-button {
     font-family: var(--font-code);
-    font-size: 28px;
+    font-size: 1.625rem;
     text-align: center;
     text-decoration: none;
     color: var(--neon-cyan);
     text-shadow: var(--blue-text-shadow);
-    border: 2px solid currentColor;
+    border: 2px solid var(--neon-cyan);
     border-radius: 6px;
     background: transparent;
     box-shadow: var(--blue-border);
-    padding: 6px 14px;
-    min-width: 150px;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    width: 8.35rem;
+    height: 2.55rem;
+    white-space: nowrap;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .nav-button .nav-button__hindi {
+    font-size: 1.15rem;
+    line-height: 1.1;
+  }
+
+  @media (min-width: 768px) {
+    .nav-button {
+      font-size: 1.75rem;
+      width: 9rem;
+      height: 2.7rem;
+      padding: 4px 8px;
+    }
+
+    .nav-button .nav-button__hindi {
+      font-size: 1.28rem;
+    }
   }
   .nav-button:hover {
     transform: translateY(-2px);
@@ -243,6 +267,122 @@
     border-radius: 6px;
     background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(2px);
+  }
+
+  /* Project / experience tab cards */
+  .card-tabs__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .card-tabs__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-tabs__body {
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .card-tabs__body--with-media {
+      grid-template-columns: minmax(220px, 38%) 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .card-tabs__body--with-media {
+      grid-template-columns: minmax(260px, 42%) 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .card-tabs__figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.55);
+    box-shadow: var(--blue-border);
+  }
+
+  .card-tabs__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .card-tabs__caption {
+    padding: 0.35rem 0.6rem 0.5rem;
+    text-align: center;
+    text-transform: lowercase;
+    opacity: 0.85;
+  }
+
+  .card-tabs__content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-tabs__content .portfolio-body {
+    line-height: 1.65;
+  }
+
+  .card-tabs__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .card-tabs__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    border: 1px solid color-mix(in srgb, var(--link-accent) 55%, transparent);
+    background: rgba(0, 0, 0, 0.45);
+    color: var(--link-accent);
+    font-family: var(--font-hand);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+    text-decoration: none;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .card-tabs__link:hover,
+  .card-tabs__link:focus-visible {
+    border-color: var(--link-accent);
+    background: color-mix(in srgb, var(--link-accent) 12%, rgba(0, 0, 0, 0.55));
+    box-shadow: 0 0 10px color-mix(in srgb, var(--link-accent) 35%, transparent);
+    outline: none;
+  }
+
+  .card-tabs__link-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .card-tabs__link-label {
+    line-height: 1;
   }
 
   .neon-text {

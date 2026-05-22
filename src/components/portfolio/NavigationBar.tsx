@@ -14,10 +14,9 @@ function NavButton({ item }: { item: NavItem }) {
     window.setTimeout(() => setShowHindi(false), 800);
   };
 
-  const baseStyle: React.CSSProperties = hovered
+  const hoverRingStyle: React.CSSProperties = hovered
     ? {
-        color: item.color,
-        textShadow: item.shadowVar,
+        borderColor: item.color,
         boxShadow: item.borderVar,
       }
     : {};
@@ -35,24 +34,21 @@ function NavButton({ item }: { item: NavItem }) {
       whileHover={{ y: -3 }}
       whileTap={{ scale: 0.95 }}
       className="nav-button inline-flex items-center justify-center"
-      style={baseStyle}
+      style={hoverRingStyle}
       aria-label={item.label}
     >
       {showHindi ? (
         <motion.span
           key="hindi"
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="font-hindi text-[22px]"
-          style={{ color: item.color }}
+          className="nav-button__hindi font-hindi"
         >
           {item.hindi}
         </motion.span>
       ) : (
-        <span className="text-[20px] md:text-[24px] tracking-tight">
-          {item.label}
-        </span>
+        <span className="nav-button__label tracking-tight">{item.label}</span>
       )}
     </motion.a>
   );
@@ -62,36 +58,37 @@ export function NavigationBar() {
   return (
     <header className="fixed top-0 left-0 w-full z-40 pointer-events-none">
       <div className="flex flex-col items-end gap-2 px-6 pt-5 lg:pt-7 lg:pr-12">
-        <div className="hidden md:flex w-full justify-end pointer-events-none pr-2">
-          <CodeTag
-            tag={CODE_TAGS.menu}
-            placement="nav"
-            rotate={-12}
-            withEntrance={false}
-          />
-        </div>
-        <motion.nav
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="pointer-events-auto flex flex-wrap items-center justify-end gap-2 md:gap-3"
-        >
-          <ul className="flex flex-wrap items-center gap-2 md:gap-3">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.id}>
-                <NavButton item={item} />
-              </li>
-            ))}
-          </ul>
-        </motion.nav>
-        <div className="hidden md:flex w-full justify-end pointer-events-none pr-2">
-          <CodeTag
-            tag={CODE_TAGS.menu}
-            closing
-            placement="nav"
-            rotate={-12}
-            withEntrance={false}
-          />
+        <div className="inline-flex flex-col items-stretch gap-2">
+          <motion.nav
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="pointer-events-auto flex flex-wrap items-center justify-end gap-2 md:gap-3"
+          >
+            <ul className="flex flex-wrap items-center gap-2 md:gap-3">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.id}>
+                  <NavButton item={item} />
+                </li>
+              ))}
+            </ul>
+          </motion.nav>
+          <div className="hidden md:flex justify-between items-end pointer-events-none">
+            <CodeTag
+              tag={CODE_TAGS.menu}
+              placement="nav"
+              rotate={-12}
+              withEntrance={false}
+              className="-ml-6 md:-ml-8"
+            />
+            <CodeTag
+              tag={CODE_TAGS.menu}
+              closing
+              placement="nav"
+              rotate={-12}
+              withEntrance={false}
+            />
+          </div>
         </div>
       </div>
     </header>

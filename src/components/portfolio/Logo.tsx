@@ -63,7 +63,7 @@ export function Logo() {
       transition={{ duration: 0.8, ease: "backOut", delay: 0.2 }}
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.94 }}
-      className="fixed top-2 left-3 md:top-4 md:left-5 z-50 w-[110px] h-[110px] grid place-items-center overflow-visible"
+      className="site-logo fixed top-2 left-3 md:top-4 md:left-5 z-50 grid place-items-center overflow-visible"
       aria-label="Scroll to top"
     >
       {/* Rotating conic halo */}

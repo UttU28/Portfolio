@@ -8,6 +8,7 @@ export function ProjectsSection() {
   return (
     <NestedSection
       id="projects"
+      wideCards
       sectionTag={CODE_TAGS.title}
       innerTag={CODE_TAGS.projects}
       header={

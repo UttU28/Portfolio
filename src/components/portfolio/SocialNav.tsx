@@ -38,7 +38,7 @@ export function SocialNav() {
                 whileHover={{ scale: 1.1, rotate: -6 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <s.Icon className="w-5 h-5" />
+                <s.Icon className="social-button__icon" aria-hidden />
               </motion.a>
             </div>
             <span className="social-nav__text" aria-hidden>

@@ -6,6 +6,9 @@ import {
   SiGmail,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
+import greWordsPreview from "@/assets/projects/gre-words.jpg";
+import popularityChartPreview from "@/assets/projects/popularity-chart.jpg";
+import eduArPreview from "@/assets/projects/edu-ar.jpg";
 
 export type NavItem = {
   id: string;
@@ -119,17 +122,34 @@ export const ABOUT = {
     `share insights and knowledge. Welcome to my own {{portfolio!}} babyyyyy"`,
 };
 
+export type ProjectLinks = {
+  github?: string;
+  youtube?: string;
+  website?: string;
+};
+
 export type CardEntry = {
   title: string;
   meta: string;
   body: string;
-  link?: string;
+  /** Optional preview image (imported asset or URL). */
+  image?: string;
+  imageAlt?: string;
+  /** GitHub / YouTube / site links (projects only). */
+  links?: ProjectLinks;
 };
 
 export const PROJECTS: CardEntry[] = [
   {
     title: "00. GRE-Words (VoKyaBolRahi)",
     meta: "|| Python | NumPy | Pillow | Flask | Android Studio ||",
+    image: greWordsPreview,
+    imageAlt: "GRE-Words automated reel pipeline preview",
+    links: {
+      github: "https://github.com/UttU28",
+      youtube: "https://www.youtube.com/@ThatInsaneGuy",
+      website: "https://vokyabolrahi-demo.netlify.app",
+    },
     body:
       "Developed a Python pipeline that automates reel creation and uploads English-teaching videos to Instagram. " +
       "Raw clips are gathered through the PlayPhrase.me API, then FFMPEG seamlessly overlays logos, merges clips and adds " +
@@ -141,6 +161,12 @@ export const PROJECTS: CardEntry[] = [
   {
     title: "01. PopularityChart",
     meta: "|| Python | Pandas | NumPy | Flask | Charts.js ||",
+    image: popularityChartPreview,
+    imageAlt: "PopularityChart data dashboard preview",
+    links: {
+      github: "https://github.com/UttU28/PopularityChart",
+      website: "https://popularity-chart-demo.netlify.app",
+    },
     body:
       "A data-science project that decodes what makes songs and artists succeed on YouTube. Python ETL pipelines pull " +
       "live data from NewsAPI, Reddit, YouTube Music and the ModerateHateSpeech API, with a dedicated collector for " +
@@ -151,6 +177,12 @@ export const PROJECTS: CardEntry[] = [
   {
     title: "02. EDU-AR",
     meta: "|| Unity 3D | Android Studio | AR Core | TensorFlow | Keras ||",
+    image: eduArPreview,
+    imageAlt: "EDU-AR mobile learning app preview",
+    links: {
+      github: "https://github.com/UttU28/EDU-AR",
+      youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
     body:
       "EDU-AR is an Android app built for preschoolers with cognitive challenges, layered with hearing and speech aids. " +
       "AR Core powers immersive AR scenes inside Unity3D, while a CNN trained with TensorFlow and Keras hits 95% accuracy " +
