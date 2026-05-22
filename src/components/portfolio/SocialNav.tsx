@@ -9,7 +9,7 @@ export function SocialNav() {
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-      className="social-nav fixed bottom-4 md:bottom-6 z-40 pointer-events-auto"
+      className="social-nav fixed bottom-4 md:bottom-6 z-40 pointer-events-auto hidden md:block"
       style={{ left: "var(--social-nav-left)" }}
     >
       <CodeTag

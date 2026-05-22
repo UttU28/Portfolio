@@ -63,7 +63,7 @@ export function Logo() {
       transition={{ duration: 0.8, ease: "backOut", delay: 0.2 }}
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.94 }}
-      className="site-logo fixed top-2 left-3 md:top-4 md:left-5 z-50 grid place-items-center overflow-visible"
+      className="site-logo fixed top-1.5 left-2 sm:top-2 sm:left-3 md:top-4 md:left-5 z-50 grid place-items-center overflow-visible"
       aria-label="Scroll to top"
     >
       {/* Rotating conic halo */}
@@ -176,7 +176,7 @@ export function Logo() {
       <motion.img
         src="/logo.png"
         alt="ThatInsaneGuy logo"
-        className="relative z-20 h-[78px] w-auto select-none"
+        className="relative z-20 h-[56px] sm:h-[64px] md:h-[78px] w-auto select-none"
         draggable={false}
         style={{
           filter:

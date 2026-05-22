@@ -1,0 +1,157 @@
+/**
+ * Mobile drawer menu — neon hamburger + slide-in panel.
+ * Only active on small screens; hidden via `.md:hidden` wrapper at md+.
+ */
+
+.mobile-drawer__toggle {
+  position: fixed;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 60;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  border: 2px solid var(--neon-cyan);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  color: var(--neon-cyan);
+  box-shadow: var(--blue-border);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-drawer__toggle:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 3px;
+}
+
+.mobile-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  border: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 55;
+  width: 88vw;
+  max-width: 22rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.92);
+  border: none;
+  box-shadow: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-drawer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 4.25rem 1.25rem 2rem;
+}
+
+.mobile-drawer__brand {
+  align-self: flex-start;
+  margin: 0 0 0 1rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 5.5vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+  text-align: left;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-drawer__brand:hover,
+.mobile-drawer__brand:focus-visible {
+  opacity: 0.85;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.mobile-drawer__brand:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.mobile-drawer__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.mobile-drawer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-drawer__link {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: 2px solid var(--neon-cyan);
+  background: rgba(0, 0, 0, 0.45);
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.mobile-drawer__link:active {
+  transform: translateY(1px);
+}
+
+.mobile-drawer__link-en {
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.mobile-drawer__link-hi {
+  margin-left: auto;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  transition: opacity 0.25s ease;
+}
+
+.mobile-drawer__socials {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.mobile-drawer__socials .social-button {
+  width: 44px;
+  height: 44px;
+  animation: none;
+}

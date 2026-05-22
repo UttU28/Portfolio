@@ -8,7 +8,6 @@ export function ProjectsSection() {
   return (
     <NestedSection
       id="projects"
-      wideCards
       sectionTag={CODE_TAGS.title}
       innerTag={CODE_TAGS.projects}
       header={
@@ -19,7 +18,7 @@ export function ProjectsSection() {
         />
       }
     >
-      <CardTabs entries={PROJECTS} accentColor="#1fffff" />
+      <CardTabs entries={PROJECTS} accentColor="#74EE15" />
     </NestedSection>
   );
 }

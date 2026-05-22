@@ -35,6 +35,14 @@ export function RubberLetters({
   size = 55,
   delay = 0,
 }: RubberLettersProps) {
+  // Responsive scaling: shrink to ~48% on the smallest phones, grow up to `size`
+  // (the original desktop value) on wider viewports. Tweak factors here if a
+  // particular line feels too small/large on mobile.
+  const minPx = Math.max(20, Math.round(size * 0.48));
+  const vwFactor = +(size * 0.05).toFixed(2);
+  const offsetPx = Math.round(size * 0.3);
+  const fontSize = `clamp(${minPx}px, ${vwFactor}vw + ${offsetPx}px, ${size}px)`;
+
   return (
     <div
       className={cn("flex flex-wrap", className)}
@@ -56,7 +64,7 @@ export function RubberLetters({
               "hover:is-neon",
               letterClassName,
             )}
-            style={{ fontSize: size, width: isSpace ? size * 0.35 : "auto" }}
+            style={{ fontSize, width: isSpace ? "0.35em" : "auto" }}
           >
             <motion.span
               variants={rubberBand}
