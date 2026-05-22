@@ -8,7 +8,6 @@ export function ExperienceSection() {
   return (
     <NestedSection
       id="experience"
-      wideCards
       sectionTag={CODE_TAGS.title}
       innerTag={CODE_TAGS.experience}
       header={

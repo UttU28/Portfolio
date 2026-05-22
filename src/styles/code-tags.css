@@ -259,12 +259,3 @@
   width: 100%;
   max-width: 42rem;
 }
-
-/* Projects & experience tab cards — use more horizontal space */
-.code-section--wide-cards {
-  max-width: min(100%, 72rem);
-}
-
-.code-section--wide-cards .code-nest__body {
-  max-width: 100%;
-}

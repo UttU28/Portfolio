@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { SiGithub, SiYoutube } from "react-icons/si";
 import { Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
 import type { ProjectLinks as ProjectLinksType } from "@/data/portfolio";
 
 type ProjectLinksProps = {
   links: ProjectLinksType;
   accentColor: string;
+  className?: string;
 };
 
 const LINK_ITEMS = [
@@ -26,13 +28,16 @@ const LINK_ITEMS = [
   },
 ];
 
-export function ProjectLinks({ links, accentColor }: ProjectLinksProps) {
+export function ProjectLinks({ links, accentColor, className }: ProjectLinksProps) {
   const items = LINK_ITEMS.filter((item) => links[item.key]);
 
   if (items.length === 0) return null;
 
   return (
-    <nav className="card-tabs__links" aria-label="Project links">
+    <nav
+      className={cn("card-tabs__links", className)}
+      aria-label="Project links"
+    >
       {items.map(({ key, label, Icon }) => {
         const href = links[key]!;
         return (

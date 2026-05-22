@@ -29,10 +29,13 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
 
   return (
     <div
-      className="card-tabs flex flex-col md:flex-row gap-4"
+      className="card-tabs w-full flex flex-col gap-3"
       style={accentStyle}
     >
-      <div className="flex md:flex-col gap-2 md:min-w-[64px] overflow-x-auto md:overflow-visible">
+      <nav
+        className="card-tabs__selector flex flex-wrap gap-2"
+        aria-label="Select entry"
+      >
         {entries.map((item, i) => {
           const isActive = i === active;
           return (
@@ -43,7 +46,7 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={cn(
-                "shrink-0 grid place-items-center font-display text-lg font-extrabold rounded-md transition-all px-3 py-3 md:w-[60px] md:h-[60px] neon-panel",
+                "card-tabs__tab shrink-0 grid place-items-center font-display text-lg font-extrabold rounded-md transition-all neon-panel",
               )}
               style={
                 isActive
@@ -60,18 +63,20 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
             </motion.button>
           );
         })}
-      </div>
+      </nav>
 
-      <div className="flex-1 min-w-0">
+      <article
+        className="card-tabs__panel neon-panel p-5 md:p-6"
+        style={{ borderColor: accentColor }}
+      >
         <AnimatePresence mode="wait">
-          <motion.article
+          <motion.div
             key={entry.title}
-            initial={{ opacity: 0, y: 20, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="card-tabs__panel neon-panel p-5 md:p-6"
-            style={{ borderColor: accentColor }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="card-tabs__detail flex flex-col gap-[1.25rem]"
           >
             <header className="card-tabs__header">
               <h3 className="portfolio-heading text-left text-2xl md:text-3xl">
@@ -105,17 +110,16 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
                     preview
                   </figcaption>
                 </figure>
-                <div className="card-tabs__content">
-                  <p className="portfolio-body text-left max-w-none">
-                    {entry.body}
-                  </p>
-                  {entry.links ? (
-                    <ProjectLinks
-                      links={entry.links}
-                      accentColor={accentColor}
-                    />
-                  ) : null}
-                </div>
+                <p className="card-tabs__text portfolio-body text-left max-w-none">
+                  {entry.body}
+                </p>
+                {entry.links ? (
+                  <ProjectLinks
+                    links={entry.links}
+                    accentColor={accentColor}
+                    className="card-tabs__links--wrap"
+                  />
+                ) : null}
               </div>
             ) : (
               <div className="card-tabs__content">
@@ -130,9 +134,9 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
                 ) : null}
               </div>
             )}
-          </motion.article>
+          </motion.div>
         </AnimatePresence>
-      </div>
+      </article>
     </div>
   );
 }

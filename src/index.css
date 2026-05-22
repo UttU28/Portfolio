@@ -296,6 +296,24 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    width: 100%;
+  }
+
+  .card-tabs__selector {
+    margin: 0;
+  }
+
+  .card-tabs__tab {
+    width: 3.25rem;
+    height: 3.25rem;
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    .card-tabs__tab {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
   }
 
   .card-tabs__header {
@@ -305,27 +323,18 @@
   }
 
   .card-tabs__body {
-    display: grid;
-    gap: 1.25rem;
-    align-items: start;
+    width: 100%;
   }
 
-  @media (min-width: 768px) {
-    .card-tabs__body--with-media {
-      grid-template-columns: minmax(220px, 38%) 1fr;
-      gap: 1.5rem;
-    }
+  /* Word-style wrap: image floats left, text flows around then below */
+  .card-tabs__body--with-media {
+    overflow: hidden;
   }
 
-  @media (min-width: 1024px) {
-    .card-tabs__body--with-media {
-      grid-template-columns: minmax(260px, 42%) 1fr;
-      gap: 2rem;
-    }
-  }
-
-  .card-tabs__figure {
-    margin: 0;
+  .card-tabs__body--with-media .card-tabs__figure {
+    margin: 0 0 1rem;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
@@ -336,12 +345,31 @@
     box-shadow: var(--card-glow, var(--blue-border));
   }
 
+  @media (min-width: 768px) {
+    .card-tabs__body--with-media .card-tabs__figure {
+      float: left;
+      width: min(38%, 13.5rem);
+      max-width: 13.5rem;
+      margin: 0 1.25rem 0.75rem 0;
+    }
+  }
+
   .card-tabs__img {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
+  }
+
+  .card-tabs__body--with-media .card-tabs__text {
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  .card-tabs__body--with-media .card-tabs__links--wrap {
+    clear: left;
+    margin-top: 1rem;
   }
 
   .card-tabs__caption {
