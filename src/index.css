@@ -2,6 +2,7 @@
 @import "./styles/code-tags.css";
 @import "./styles/disc-player.css";
 @import "./styles/disc-widget.css";
+@import "./styles/certifications.css";
 @import "./styles/social-nav.css";
 @import "./styles/mobile-drawer.css";
 
@@ -401,9 +402,8 @@
     line-height: 1.65;
   }
 
-  .card-tabs__body--with-media .card-tabs__links--wrap {
-    clear: left;
-    margin-top: 1rem;
+  .card-tabs__body--with-media .card-tabs__links--top {
+    margin-bottom: 0.75rem;
   }
 
   .card-tabs__caption {
@@ -442,8 +442,7 @@
     color: var(--link-accent);
     font-family: var(--font-hand);
     font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: lowercase;
+    letter-spacing: 0.04em;
     text-decoration: none;
     transition:
       border-color 0.2s ease,

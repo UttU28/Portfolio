@@ -9,6 +9,64 @@ import type { IconType } from "react-icons";
 import greWordsPreview from "@/assets/projects/gre-words.jpg";
 import popularityChartPreview from "@/assets/projects/popularity-chart.jpg";
 import eduArPreview from "@/assets/projects/edu-ar.jpg";
+import az400Badge from "@/assets/certifications/az400.png";
+import az900Badge from "@/assets/certifications/az900.png";
+import expertBadge from "@/assets/certifications/expert.png";
+import googleItBadge from "@/assets/certifications/googleit.png";
+import pythonForEverybodyBadge from "@/assets/certifications/pythonForEverybody.png";
+
+export const CERTIFICATIONS_ACCENT = "#00d0ff";
+
+export type CertificationBadge = {
+  src: string;
+  alt: string;
+};
+
+export type CertificationEntry = {
+  id: string;
+  title: string;
+  lines: string[];
+  credentialUrl: string;
+  credentialLabel: string;
+};
+
+export const CERTIFICATION_BADGES: CertificationBadge[] = [
+  { src: expertBadge, alt: "Microsoft DevOps Engineer Expert" },
+  { src: az400Badge, alt: "AZ-400" },
+  { src: az900Badge, alt: "AZ-900" },
+  { src: googleItBadge, alt: "Google IT Automation with Python" },
+  { src: pythonForEverybodyBadge, alt: "Python for Everybody — University of Michigan" },
+];
+
+export const CERTIFICATION_ENTRIES: CertificationEntry[] = [
+  {
+    id: "microsoft-devops-expert",
+    title: "Microsoft Certified: DevOps Engineer Expert",
+    lines: [
+      "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+      "AZ-900: Microsoft Certified: Azure Fundamentals",
+    ],
+    credentialUrl:
+      "https://drive.google.com/file/d/1AjPcmWMrnxSNEUaSC6XzCVqHik7d5M1M/view?usp=drive_link",
+    credentialLabel: "View Credential",
+  },
+  {
+    id: "python-for-everybody",
+    title: "Python for Everybody Specialization (University of Michigan)",
+    lines: [],
+    credentialUrl:
+      "https://www.coursera.org/share/f266a69d0980d9a34a9623b478492d50",
+    credentialLabel: "View Credential",
+  },
+  {
+    id: "google-it-automation",
+    title: "Google IT Automation with Python (Specialization)",
+    lines: [],
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/specialization/certificate/59YMRC67LBUQ",
+    credentialLabel: "View Credential",
+  },
+];
 
 /** Fixed vinyl player — Soft Sunset Grooves (Pixabay, DPStudioMusic) */
 export const DISC_PLAYER = {
@@ -59,6 +117,15 @@ export const NAV_ITEMS: NavItem[] = [
     color: "#FFE700",
     shadowVar: "var(--yellow-text-shadow)",
     borderVar: "var(--yellow-border)",
+  },
+  {
+    id: "Certifications",
+    href: "#certifications",
+    label: "Certs",
+    hindi: "प्रमाण",
+    color: "#FF7700",
+    shadowVar: "var(--orange-text-shadow)",
+    borderVar: "var(--orange-border)",
   },
   {
     id: "YouTube",
@@ -137,6 +204,7 @@ export type ProjectLinks = {
   github?: string;
   youtube?: string;
   website?: string;
+  linkedin?: string;
 };
 
 export type CardEntry = {
@@ -152,38 +220,41 @@ export type CardEntry = {
 
 export const PROJECTS: CardEntry[] = [
   {
-    title: "00. GRE-Words (VoKyaBolRahi)",
-    meta: "|| Python | NumPy | Pillow | Flask | Android Studio ||",
-    image: greWordsPreview,
-    imageAlt: "GRE-Words automated reel pipeline preview",
+    title: "00. LinkedIn Reverse Search Platform",
+    meta:
+      "|| Personal Project | Python | Hugging Face | n8n | Selenium | Redis | MongoDB | React.js | D3.js | Next.js | Firebase | Docker ||",
     links: {
-      github: "https://github.com/UttU28",
-      youtube: "https://www.youtube.com/@ThatInsaneGuy",
-      website: "https://vokyabolrahi-demo.netlify.app",
+      website: "https://linkitup.thatinsaneguy.com/",
     },
     body:
-      "Developed a Python pipeline that automates reel creation and uploads English-teaching videos to Instagram. " +
-      "Raw clips are gathered through the PlayPhrase.me API, then FFMPEG seamlessly overlays logos, merges clips and adds " +
-      "professional transitions for a desktop-grade edit. WhisperAI generates accurate timestamped subtitles, which Pillow " +
-      "and FFMPEG burn into the video. Google Drive stores the finished assets, JSON metadata lives in Azure Blob Storage, " +
-      "and Azure Logic Apps orchestrate the workflow end to end. Finally, Selenium handles login, upload and caption " +
-      "configuration on Instagram, making the entire pipeline hands-off.",
+      "Built a data enrichment platform in Python using fine-tuned Hugging Face models and prompt-engineered pipelines for " +
+      "LLM-assisted extraction of LinkedIn profiles and company website URLs from unstructured data, processing 1000+ records. " +
+      "Orchestrated a tool-based pipeline with n8n: Selenium for scraping, SalesQL for validation, and LLM prompts for parsing; " +
+      "Redis and MongoDB for caching and storage, cutting repeat request time by 45%; added analytics with React.js and D3.js. " +
+      "Designed extraction and validation prompts and MCP-style tools for profile and company URL enrichment with quality checks; " +
+      "integrated OpenAI for fallback parsing and normalization. Delivered a Next.js frontend with Excel upload and real-time " +
+      "progress; Firebase Auth and Firestore; Docker and CI/CD (GitHub Actions) for 99.5% uptime across enrichment services and " +
+      "automation workflows.",
   },
   {
-    title: "01. PopularityChart",
-    meta: "|| Python | Pandas | NumPy | Flask | Charts.js ||",
-    image: popularityChartPreview,
-    imageAlt: "PopularityChart data dashboard preview",
+    title: "01. AI-Powered Video Generation Pipeline",
+    meta:
+      "|| Personal Project | Python | FFMPEG | F5-TTS | OpenAI | WhisperAI | Selenium | Docker | Gradio ||",
     links: {
-      github: "https://github.com/UttU28/PopularityChart",
-      website: "https://popularity-chart-demo.netlify.app",
+      website: "https://meme.thatinsaneguy.com/",
+      github: "https://github.com/UttU28/MemeMaker/",
+      linkedin: "https://www.linkedin.com/posts/utsavmaan28_voicecloning-ai-machinelearning-ugcPost-7363380027540787200-ZsES?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB5yNlkBPSHBXN1LG7ta1ClqZ_yeQBV9M5c",
     },
     body:
-      "A data-science project that decodes what makes songs and artists succeed on YouTube. Python ETL pipelines pull " +
-      "live data from NewsAPI, Reddit, YouTube Music and the ModerateHateSpeech API, with a dedicated collector for " +
-      "Reddit's volatile streams. Pandas filters, dedupes and normalises the data before it lands in MongoDB. The Flask " +
-      "web interface ties everything together with dynamic Charts.js visualisations that respond to user filters, " +
-      "comparing artist popularity, news influence, hate-speech levels and cross-platform engagement.",
+      "Developed an advanced FFMPEG video generation pipeline using Python and machine learning models, integrating F5-TTS for " +
+      "high-quality voice cloning and speech synthesis to create fully AI-generated videos. Integrated OpenAI API for dynamic " +
+      "script writing, WhisperAI for audio transcription, and FFMPEG for embedding subtitles and synchronizing audio-visual " +
+      "elements; Chrome and Selenium for managing and automating the browser. Engineered a scalable video processing system that " +
+      "merges F5-TTS generated audio with trending gaming backgrounds, applying randomization for unique video variants using " +
+      "FFMPEG and custom overlays. Designed and deployed a multi-channel automation system with Docker and CRON jobs for scheduled " +
+      "generation and publishing of 50+ videos daily across YouTube and Instagram, including platform-specific metadata and " +
+      "formatting. Built an intuitive Gradio interface for real-time pipeline monitoring, voice cloning status updates, and batch " +
+      "processing.",
   },
   {
     title: "02. EDU-AR",

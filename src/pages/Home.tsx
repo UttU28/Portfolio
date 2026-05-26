@@ -10,6 +10,7 @@ import { HomeSection } from "@/components/portfolio/sections/HomeSection";
 import { AboutSection } from "@/components/portfolio/sections/AboutSection";
 import { ProjectsSection } from "@/components/portfolio/sections/ProjectsSection";
 import { ExperienceSection } from "@/components/portfolio/sections/ExperienceSection";
+import { CertificationsSection } from "@/components/portfolio/sections/CertificationsSection";
 import { YouTubeSection } from "@/components/portfolio/sections/YouTubeSection";
 
 export default function Home() {
@@ -33,18 +34,21 @@ export default function Home() {
         <AboutSection />
         <ProjectsSection />
         <ExperienceSection />
+        <CertificationsSection />
         <YouTubeSection />
       </div>
 
       <footer className="portfolio-footer relative z-10 w-full px-4 py-10 sm:py-12 md:py-14 text-center">
-        <p className="portfolio-footer__text font-code text-white/45 text-sm sm:text-base md:text-2xl lg:text-3xl break-words">
+        <p className="portfolio-footer__text font-display text-white/45 text-xs sm:text-sm md:text-base lg:text-lg break-words">
           <span className="opacity-60">{"<"}</span>
           <span className="px-1.5 sm:px-2 md:px-3">
-            crafted by Utsav · React + Framer Motion
+            ThatInsaneGuy &nbsp; &times; &nbsp; Cursor.AI
           </span>
           <span className="opacity-60">{"/>"}</span>
         </p>
       </footer>
+ 
+ 
  
     </motion.main>
   );

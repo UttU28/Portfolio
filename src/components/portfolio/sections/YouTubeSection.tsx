@@ -14,7 +14,7 @@ export function YouTubeSection() {
       innerTag={CODE_TAGS.youtube}
       header={
         <RubberLetters
-          text="03. YOUTUBE"
+          text="04. YOUTUBE"
           size={56}
           className="code-nest__heading"
         />
@@ -31,7 +31,7 @@ export function YouTubeSection() {
         <HighlightText
           text={YOUTUBE.body}
           className="portfolio-body max-w-2xl"
-          highlightClassName="text-red-400 hover:text-red-300"
+          highlightClassName="text-cyan-300 hover:text-cyan-200"
         />
 
         <motion.a

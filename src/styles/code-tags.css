@@ -39,6 +39,7 @@
   --tag-about: #4deeea;
   --tag-projects: #74ee15;
   --tag-experience: #ffe700;
+  --tag-certifications: #ff7700;
   --tag-youtube: #f000ff;
   --tag-menu: #1fffff;
   --tag-introduction: #1fffff;
@@ -172,6 +173,9 @@
 }
 .code-tag--experience .code-tag__name {
   color: color-mix(in srgb, var(--tag-experience) var(--tag-accent-opacity), transparent);
+}
+.code-tag--certifications .code-tag__name {
+  color: color-mix(in srgb, var(--tag-certifications) var(--tag-accent-opacity), transparent);
 }
 .code-tag--youtube .code-tag__name {
   color: color-mix(in srgb, var(--tag-youtube) var(--tag-accent-opacity), transparent);

@@ -16,6 +16,7 @@ function NavButton({ item }: { item: NavItem }) {
 
   const hoverRingStyle: React.CSSProperties = hovered
     ? {
+        color: item.color,
         borderColor: item.color,
         boxShadow: item.borderVar,
       }
@@ -66,7 +67,10 @@ export function NavigationBar() {
             className="pointer-events-auto flex flex-wrap items-center justify-end gap-2 md:gap-3"
           >
             <ul className="flex flex-wrap items-center justify-end gap-2 md:gap-3">
-              {NAV_ITEMS.map((item) => (
+              {NAV_ITEMS
+                // Resume is intentionally hidden from navbar for now.
+                .filter((item) => item.id !== "Resume")
+                .map((item) => (
                 <li key={item.id}>
                   <NavButton item={item} />
                 </li>
