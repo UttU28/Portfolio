@@ -10,6 +10,7 @@ export const CODE_TAGS = {
   about: "about",
   projects: "projects",
   experience: "experience",
+  certifications: "certifications",
   youtube: "youtube",
 } as const;
 

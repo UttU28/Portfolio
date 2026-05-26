@@ -18,7 +18,7 @@ export function ExperienceSection() {
         />
       }
     >
-      <CardTabs entries={EXPERIENCES} accentColor="#FFE700" />
+      <CardTabs entries={EXPERIENCES} accentColor="#1fffff" />
     </NestedSection>
   );
 }

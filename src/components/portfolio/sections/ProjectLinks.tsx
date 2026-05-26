@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SiGithub, SiYoutube } from "react-icons/si";
+import { SiGithub, SiYoutube, SiLinkedin } from "react-icons/si";
 import { Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ProjectLinks as ProjectLinksType } from "@/data/portfolio";
@@ -25,6 +25,11 @@ const LINK_ITEMS = [
     key: "website" as const,
     label: "Website",
     Icon: Globe,
+  },
+  {
+    key: "linkedin" as const,
+    label: "LinkedIn",
+    Icon: SiLinkedin,
   },
 ];
 

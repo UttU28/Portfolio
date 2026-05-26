@@ -92,6 +92,13 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
 
             {entry.image ? (
               <div className="card-tabs__body card-tabs__body--with-media">
+                {entry.links ? (
+                  <ProjectLinks
+                    links={entry.links}
+                    accentColor={accentColor}
+                    className="card-tabs__links--top"
+                  />
+                ) : null}
                 <figure
                   className="card-tabs__figure"
                   style={{ borderColor: accentColor }}
@@ -113,25 +120,18 @@ export function CardTabs({ entries, accentColor = "#1fffff" }: CardTabsProps) {
                 <p className="card-tabs__text portfolio-body text-left max-w-none">
                   {entry.body}
                 </p>
-                {entry.links ? (
-                  <ProjectLinks
-                    links={entry.links}
-                    accentColor={accentColor}
-                    className="card-tabs__links--wrap"
-                  />
-                ) : null}
               </div>
             ) : (
               <div className="card-tabs__content">
-                <p className="portfolio-body text-left max-w-none">
-                  {entry.body}
-                </p>
                 {entry.links ? (
                   <ProjectLinks
                     links={entry.links}
                     accentColor={accentColor}
                   />
                 ) : null}
+                <p className="portfolio-body text-left max-w-none">
+                  {entry.body}
+                </p>
               </div>
             )}
           </motion.div>
